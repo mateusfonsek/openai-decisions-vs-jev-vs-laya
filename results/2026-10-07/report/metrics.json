@@ -1,0 +1,3946 @@
+{
+  "jev": {
+    "routing": {
+      "n": 150,
+      "failure_rate": 0.0,
+      "ece": 0.037588552188552185,
+      "reliability": [
+        {
+          "lo": 0.3,
+          "hi": 0.4,
+          "n": 2,
+          "conf": 0.37,
+          "acc": 0.5
+        },
+        {
+          "lo": 0.4,
+          "hi": 0.5,
+          "n": 3,
+          "conf": 0.4166666666666667,
+          "acc": 0.0
+        },
+        {
+          "lo": 0.5,
+          "hi": 0.6,
+          "n": 7,
+          "conf": 0.5628571428571428,
+          "acc": 0.2857142857142857
+        },
+        {
+          "lo": 0.6,
+          "hi": 0.7,
+          "n": 11,
+          "conf": 0.6457667584940312,
+          "acc": 0.7272727272727273
+        },
+        {
+          "lo": 0.7,
+          "hi": 0.8,
+          "n": 12,
+          "conf": 0.7475,
+          "acc": 0.8333333333333334
+        },
+        {
+          "lo": 0.8,
+          "hi": 0.9,
+          "n": 14,
+          "conf": 0.842020202020202,
+          "acc": 0.8571428571428571
+        },
+        {
+          "lo": 0.9,
+          "hi": 1.0,
+          "n": 101,
+          "conf": 0.9806930693069307,
+          "acc": 0.9801980198019802
+        }
+      ],
+      "accuracy": 0.88,
+      "macro_f1": 0.8735485858847951,
+      "confusion": {
+        "calendar": {
+          "calendar": 19,
+          "email": 0,
+          "web_search": 0,
+          "crm_lookup": 0,
+          "code_exec": 0,
+          "file_search": 0,
+          "human_handoff": 0,
+          "no_tool": 0
+        },
+        "email": {
+          "calendar": 3,
+          "email": 9,
+          "web_search": 0,
+          "crm_lookup": 6,
+          "code_exec": 1,
+          "file_search": 0,
+          "human_handoff": 0,
+          "no_tool": 0
+        },
+        "web_search": {
+          "calendar": 0,
+          "email": 0,
+          "web_search": 19,
+          "crm_lookup": 0,
+          "code_exec": 0,
+          "file_search": 0,
+          "human_handoff": 0,
+          "no_tool": 0
+        },
+        "crm_lookup": {
+          "calendar": 0,
+          "email": 0,
+          "web_search": 0,
+          "crm_lookup": 19,
+          "code_exec": 0,
+          "file_search": 0,
+          "human_handoff": 0,
+          "no_tool": 0
+        },
+        "code_exec": {
+          "calendar": 0,
+          "email": 0,
+          "web_search": 0,
+          "crm_lookup": 0,
+          "code_exec": 15,
+          "file_search": 0,
+          "human_handoff": 0,
+          "no_tool": 4
+        },
+        "file_search": {
+          "calendar": 0,
+          "email": 0,
+          "web_search": 0,
+          "crm_lookup": 0,
+          "code_exec": 0,
+          "file_search": 19,
+          "human_handoff": 0,
+          "no_tool": 0
+        },
+        "human_handoff": {
+          "calendar": 0,
+          "email": 0,
+          "web_search": 0,
+          "crm_lookup": 3,
+          "code_exec": 0,
+          "file_search": 0,
+          "human_handoff": 14,
+          "no_tool": 1
+        },
+        "no_tool": {
+          "calendar": 0,
+          "email": 0,
+          "web_search": 0,
+          "crm_lookup": 0,
+          "code_exec": 0,
+          "file_search": 0,
+          "human_handoff": 0,
+          "no_tool": 18
+        }
+      },
+      "by_difficulty": {
+        "easy": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.05866666666666661,
+          "reliability": [
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 1,
+              "conf": 0.42,
+              "acc": 0.0
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 1,
+              "conf": 0.54,
+              "acc": 0.0
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 1,
+              "conf": 0.6666666666666666,
+              "acc": 1.0
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 3,
+              "conf": 0.7366666666666667,
+              "acc": 1.0
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 2,
+              "conf": 0.845,
+              "acc": 1.0
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 42,
+              "conf": 0.9871428571428572,
+              "acc": 1.0
+            }
+          ],
+          "accuracy": 0.96,
+          "macro_f1": 0.9593240093240093,
+          "confusion": {
+            "calendar": {
+              "calendar": 7,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 0
+            },
+            "email": {
+              "calendar": 0,
+              "email": 6,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 0
+            },
+            "web_search": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 6,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 0
+            },
+            "crm_lookup": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 7,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 0
+            },
+            "code_exec": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 5,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 1
+            },
+            "file_search": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 6,
+              "human_handoff": 0,
+              "no_tool": 0
+            },
+            "human_handoff": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 1,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 5,
+              "no_tool": 0
+            },
+            "no_tool": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 6
+            }
+          }
+        },
+        "ambiguous": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.10239999999999999,
+          "reliability": [
+            {
+              "lo": 0.3,
+              "hi": 0.4,
+              "n": 2,
+              "conf": 0.37,
+              "acc": 0.5
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 1,
+              "conf": 0.42,
+              "acc": 0.0
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 3,
+              "conf": 0.5666666666666667,
+              "acc": 0.3333333333333333
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 5,
+              "conf": 0.642,
+              "acc": 0.4
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 5,
+              "conf": 0.742,
+              "acc": 1.0
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 6,
+              "conf": 0.835,
+              "acc": 0.8333333333333334
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 28,
+              "conf": 0.9725,
+              "acc": 0.9285714285714286
+            }
+          ],
+          "accuracy": 0.8,
+          "macro_f1": 0.7807948179271709,
+          "confusion": {
+            "calendar": {
+              "calendar": 6,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 0
+            },
+            "email": {
+              "calendar": 2,
+              "email": 1,
+              "web_search": 0,
+              "crm_lookup": 4,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 0
+            },
+            "web_search": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 6,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 0
+            },
+            "crm_lookup": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 6,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 0
+            },
+            "code_exec": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 5,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 2
+            },
+            "file_search": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 6,
+              "human_handoff": 0,
+              "no_tool": 0
+            },
+            "human_handoff": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 1,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 4,
+              "no_tool": 1
+            },
+            "no_tool": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 6
+            }
+          }
+        },
+        "adversarial": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.09323030303030302,
+          "reliability": [
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 1,
+              "conf": 0.41000000000000003,
+              "acc": 0.0
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 3,
+              "conf": 0.5666666666666668,
+              "acc": 0.3333333333333333
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 5,
+              "conf": 0.6453535353535353,
+              "acc": 1.0
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 4,
+              "conf": 0.7625,
+              "acc": 0.5
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 6,
+              "conf": 0.848047138047138,
+              "acc": 0.8333333333333334
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 31,
+              "conf": 0.9793548387096774,
+              "acc": 1.0
+            }
+          ],
+          "accuracy": 0.88,
+          "macro_f1": 0.8610722610722611,
+          "confusion": {
+            "calendar": {
+              "calendar": 6,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 0
+            },
+            "email": {
+              "calendar": 1,
+              "email": 2,
+              "web_search": 0,
+              "crm_lookup": 2,
+              "code_exec": 1,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 0
+            },
+            "web_search": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 7,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 0
+            },
+            "crm_lookup": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 6,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 0
+            },
+            "code_exec": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 5,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 1
+            },
+            "file_search": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 7,
+              "human_handoff": 0,
+              "no_tool": 0
+            },
+            "human_handoff": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 1,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 5,
+              "no_tool": 0
+            },
+            "no_tool": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 6
+            }
+          }
+        }
+      },
+      "latency_p50": 228.61727050621994,
+      "latency_p95": 304.2886915500276,
+      "latency_p50_net": 56.7897080181865,
+      "rtt_median": 171.82756248803344,
+      "cost_per_1k": 0.021195
+    },
+    "injection": {
+      "n": 150,
+      "failure_rate": 0.0,
+      "ece": 0.06700000000000007,
+      "reliability": [
+        {
+          "lo": 0.5,
+          "hi": 0.6,
+          "n": 11,
+          "conf": 0.56,
+          "acc": 0.8181818181818182
+        },
+        {
+          "lo": 0.6,
+          "hi": 0.7,
+          "n": 6,
+          "conf": 0.6466666666666666,
+          "acc": 0.6666666666666666
+        },
+        {
+          "lo": 0.7,
+          "hi": 0.8,
+          "n": 8,
+          "conf": 0.7475,
+          "acc": 1.0
+        },
+        {
+          "lo": 0.8,
+          "hi": 0.9,
+          "n": 15,
+          "conf": 0.85,
+          "acc": 0.9333333333333333
+        },
+        {
+          "lo": 0.9,
+          "hi": 1.0,
+          "n": 110,
+          "conf": 0.9652727272727272,
+          "acc": 1.0
+        }
+      ],
+      "precision": 0.972972972972973,
+      "recall": 0.96,
+      "f1": 0.9664429530201343,
+      "auroc": 0.9932444444444445,
+      "fpr_hard_negatives": 0.04,
+      "by_difficulty": {
+        "easy": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.031599999999999975,
+          "reliability": [
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 1,
+              "conf": 0.67,
+              "acc": 1.0
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 49,
+              "conf": 0.9744897959183674,
+              "acc": 1.0
+            }
+          ],
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "auroc": 1.0,
+          "fpr_hard_negatives": null
+        },
+        "ambiguous": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.11059999999999999,
+          "reliability": [
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 6,
+              "conf": 0.5766666666666667,
+              "acc": 0.8333333333333334
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 2,
+              "conf": 0.63,
+              "acc": 0.5
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 3,
+              "conf": 0.7433333333333333,
+              "acc": 1.0
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 10,
+              "conf": 0.843,
+              "acc": 1.0
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 29,
+              "conf": 0.9520689655172414,
+              "acc": 1.0
+            }
+          ],
+          "precision": 0.96,
+          "recall": 0.96,
+          "f1": 0.96,
+          "auroc": 0.9944,
+          "fpr_hard_negatives": null
+        },
+        "adversarial": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.082,
+          "reliability": [
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 5,
+              "conf": 0.54,
+              "acc": 0.8
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 3,
+              "conf": 0.65,
+              "acc": 0.6666666666666666
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 5,
+              "conf": 0.75,
+              "acc": 1.0
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 5,
+              "conf": 0.8640000000000001,
+              "acc": 0.8
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 32,
+              "conf": 0.963125,
+              "acc": 1.0
+            }
+          ],
+          "precision": 0.9583333333333334,
+          "recall": 0.92,
+          "f1": 0.9387755102040817,
+          "auroc": 0.9816,
+          "fpr_hard_negatives": 0.04
+        }
+      },
+      "latency_p50": 225.29456250777002,
+      "latency_p95": 295.77854823292006,
+      "latency_p50_net": 53.46700001973659,
+      "rtt_median": 171.82756248803344,
+      "cost_per_1k": 0.016189
+    },
+    "judge": {
+      "n": 150,
+      "failure_rate": 0.0,
+      "ece": 0.07999595959595963,
+      "reliability": [
+        {
+          "lo": 0.4,
+          "hi": 0.5,
+          "n": 7,
+          "conf": 0.4471428571428571,
+          "acc": 0.2857142857142857
+        },
+        {
+          "lo": 0.5,
+          "hi": 0.6,
+          "n": 10,
+          "conf": 0.534,
+          "acc": 0.7
+        },
+        {
+          "lo": 0.6,
+          "hi": 0.7,
+          "n": 14,
+          "conf": 0.6342857142857143,
+          "acc": 0.5
+        },
+        {
+          "lo": 0.7,
+          "hi": 0.8,
+          "n": 11,
+          "conf": 0.7472727272727273,
+          "acc": 0.8181818181818182
+        },
+        {
+          "lo": 0.8,
+          "hi": 0.9,
+          "n": 19,
+          "conf": 0.8457894736842105,
+          "acc": 0.631578947368421
+        },
+        {
+          "lo": 0.9,
+          "hi": 1.0,
+          "n": 89,
+          "conf": 0.971678583588696,
+          "acc": 0.9438202247191011
+        }
+      ],
+      "exact": 0.8066666666666666,
+      "within_1": 0.9866666666666667,
+      "mae": 0.21333333333333335,
+      "by_difficulty": {
+        "easy": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.10759999999999997,
+          "reliability": [
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 1,
+              "conf": 0.4,
+              "acc": 0.0
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 3,
+              "conf": 0.51,
+              "acc": 0.6666666666666666
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 5,
+              "conf": 0.656,
+              "acc": 0.8
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 5,
+              "conf": 0.736,
+              "acc": 1.0
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 5,
+              "conf": 0.8320000000000001,
+              "acc": 0.8
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 31,
+              "conf": 0.9777419354838709,
+              "acc": 0.9032258064516129
+            }
+          ],
+          "exact": 0.86,
+          "within_1": 1.0,
+          "mae": 0.14
+        },
+        "ambiguous": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.12219999999999999,
+          "reliability": [
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 6,
+              "conf": 0.455,
+              "acc": 0.3333333333333333
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 3,
+              "conf": 0.5466666666666667,
+              "acc": 0.3333333333333333
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 4,
+              "conf": 0.62,
+              "acc": 0.25
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 1,
+              "conf": 0.76,
+              "acc": 1.0
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 6,
+              "conf": 0.8450000000000001,
+              "acc": 0.5
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 30,
+              "conf": 0.9683333333333334,
+              "acc": 1.0
+            }
+          ],
+          "exact": 0.76,
+          "within_1": 0.98,
+          "mae": 0.26
+        },
+        "adversarial": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.13378787878787873,
+          "reliability": [
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 4,
+              "conf": 0.5425,
+              "acc": 1.0
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 5,
+              "conf": 0.624,
+              "acc": 0.4
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 5,
+              "conf": 0.756,
+              "acc": 0.6
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 8,
+              "conf": 0.855,
+              "acc": 0.625
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 28,
+              "conf": 0.9685497835497835,
+              "acc": 0.9285714285714286
+            }
+          ],
+          "exact": 0.8,
+          "within_1": 0.98,
+          "mae": 0.24
+        }
+      },
+      "latency_p50": 228.63318749296013,
+      "latency_p95": 281.80235610489035,
+      "latency_p50_net": 56.805625004926696,
+      "rtt_median": 171.82756248803344,
+      "cost_per_1k": 0.017406
+    }
+  },
+  "laya-rot": {
+    "routing": {
+      "n": 150,
+      "failure_rate": 0.0,
+      "ece": 0.22575715593696039,
+      "reliability": [
+        {
+          "lo": 0.2,
+          "hi": 0.3,
+          "n": 7,
+          "conf": 0.27861913590480775,
+          "acc": 0.14285714285714285
+        },
+        {
+          "lo": 0.3,
+          "hi": 0.4,
+          "n": 19,
+          "conf": 0.36742256219348485,
+          "acc": 0.10526315789473684
+        },
+        {
+          "lo": 0.4,
+          "hi": 0.5,
+          "n": 32,
+          "conf": 0.45401431958593114,
+          "acc": 0.28125
+        },
+        {
+          "lo": 0.5,
+          "hi": 0.6,
+          "n": 16,
+          "conf": 0.5687832450613646,
+          "acc": 0.375
+        },
+        {
+          "lo": 0.6,
+          "hi": 0.7,
+          "n": 22,
+          "conf": 0.649024900297403,
+          "acc": 0.4090909090909091
+        },
+        {
+          "lo": 0.7,
+          "hi": 0.8,
+          "n": 18,
+          "conf": 0.753565357103105,
+          "acc": 0.3888888888888889
+        },
+        {
+          "lo": 0.8,
+          "hi": 0.9,
+          "n": 12,
+          "conf": 0.8530827516086705,
+          "acc": 0.5833333333333334
+        },
+        {
+          "lo": 0.9,
+          "hi": 1.0,
+          "n": 24,
+          "conf": 0.9676459731708232,
+          "acc": 0.7916666666666666
+        }
+      ],
+      "accuracy": 0.4,
+      "macro_f1": 0.37514438424402097,
+      "confusion": {
+        "calendar": {
+          "calendar": 10,
+          "email": 1,
+          "web_search": 0,
+          "crm_lookup": 0,
+          "code_exec": 0,
+          "file_search": 0,
+          "human_handoff": 5,
+          "no_tool": 3
+        },
+        "email": {
+          "calendar": 1,
+          "email": 9,
+          "web_search": 0,
+          "crm_lookup": 1,
+          "code_exec": 0,
+          "file_search": 0,
+          "human_handoff": 6,
+          "no_tool": 2
+        },
+        "web_search": {
+          "calendar": 2,
+          "email": 0,
+          "web_search": 2,
+          "crm_lookup": 0,
+          "code_exec": 0,
+          "file_search": 1,
+          "human_handoff": 9,
+          "no_tool": 5
+        },
+        "crm_lookup": {
+          "calendar": 1,
+          "email": 1,
+          "web_search": 0,
+          "crm_lookup": 8,
+          "code_exec": 0,
+          "file_search": 0,
+          "human_handoff": 6,
+          "no_tool": 3
+        },
+        "code_exec": {
+          "calendar": 3,
+          "email": 2,
+          "web_search": 0,
+          "crm_lookup": 0,
+          "code_exec": 4,
+          "file_search": 3,
+          "human_handoff": 2,
+          "no_tool": 5
+        },
+        "file_search": {
+          "calendar": 2,
+          "email": 0,
+          "web_search": 1,
+          "crm_lookup": 1,
+          "code_exec": 0,
+          "file_search": 2,
+          "human_handoff": 9,
+          "no_tool": 4
+        },
+        "human_handoff": {
+          "calendar": 0,
+          "email": 0,
+          "web_search": 0,
+          "crm_lookup": 0,
+          "code_exec": 0,
+          "file_search": 0,
+          "human_handoff": 18,
+          "no_tool": 0
+        },
+        "no_tool": {
+          "calendar": 3,
+          "email": 1,
+          "web_search": 0,
+          "crm_lookup": 1,
+          "code_exec": 1,
+          "file_search": 0,
+          "human_handoff": 5,
+          "no_tool": 7
+        }
+      },
+      "by_difficulty": {
+        "easy": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.14061118693144506,
+          "reliability": [
+            {
+              "lo": 0.2,
+              "hi": 0.3,
+              "n": 2,
+              "conf": 0.2735757230351017,
+              "acc": 0.5
+            },
+            {
+              "lo": 0.3,
+              "hi": 0.4,
+              "n": 4,
+              "conf": 0.34709154792230373,
+              "acc": 0.0
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 12,
+              "conf": 0.453641838405628,
+              "acc": 0.3333333333333333
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 4,
+              "conf": 0.5840340497815073,
+              "acc": 0.5
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 6,
+              "conf": 0.6420901216760412,
+              "acc": 0.5
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 7,
+              "conf": 0.7586050215277476,
+              "acc": 0.7142857142857143
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 4,
+              "conf": 0.8552364320544559,
+              "acc": 1.0
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 11,
+              "conf": 0.9697887444024563,
+              "acc": 0.8181818181818182
+            }
+          ],
+          "accuracy": 0.56,
+          "macro_f1": 0.5274742618492618,
+          "confusion": {
+            "calendar": {
+              "calendar": 5,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 2,
+              "no_tool": 0
+            },
+            "email": {
+              "calendar": 0,
+              "email": 6,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 0
+            },
+            "web_search": {
+              "calendar": 2,
+              "email": 0,
+              "web_search": 1,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 2,
+              "no_tool": 1
+            },
+            "crm_lookup": {
+              "calendar": 0,
+              "email": 1,
+              "web_search": 0,
+              "crm_lookup": 4,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 1,
+              "no_tool": 1
+            },
+            "code_exec": {
+              "calendar": 1,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 2,
+              "file_search": 1,
+              "human_handoff": 0,
+              "no_tool": 2
+            },
+            "file_search": {
+              "calendar": 1,
+              "email": 0,
+              "web_search": 1,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 1,
+              "human_handoff": 2,
+              "no_tool": 1
+            },
+            "human_handoff": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 6,
+              "no_tool": 0
+            },
+            "no_tool": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 1,
+              "file_search": 0,
+              "human_handoff": 2,
+              "no_tool": 3
+            }
+          }
+        },
+        "ambiguous": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.35962940619147327,
+          "reliability": [
+            {
+              "lo": 0.2,
+              "hi": 0.3,
+              "n": 2,
+              "conf": 0.2807183383432459,
+              "acc": 0.0
+            },
+            {
+              "lo": 0.3,
+              "hi": 0.4,
+              "n": 10,
+              "conf": 0.3752505081916194,
+              "acc": 0.2
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 11,
+              "conf": 0.44609981118934294,
+              "acc": 0.18181818181818182
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 5,
+              "conf": 0.5376037552076942,
+              "acc": 0.4
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 8,
+              "conf": 0.6509335452986882,
+              "acc": 0.25
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 7,
+              "conf": 0.7507186269349784,
+              "acc": 0.0
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 2,
+              "conf": 0.8578364732030522,
+              "acc": 0.0
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 5,
+              "conf": 0.9788480309018551,
+              "acc": 0.6
+            }
+          ],
+          "accuracy": 0.22,
+          "macro_f1": 0.1702305311176279,
+          "confusion": {
+            "calendar": {
+              "calendar": 1,
+              "email": 1,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 1,
+              "no_tool": 3
+            },
+            "email": {
+              "calendar": 0,
+              "email": 1,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 5,
+              "no_tool": 1
+            },
+            "web_search": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 3,
+              "no_tool": 3
+            },
+            "crm_lookup": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 1,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 3,
+              "no_tool": 2
+            },
+            "code_exec": {
+              "calendar": 1,
+              "email": 1,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 1,
+              "file_search": 1,
+              "human_handoff": 2,
+              "no_tool": 1
+            },
+            "file_search": {
+              "calendar": 1,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 1,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 3,
+              "no_tool": 1
+            },
+            "human_handoff": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 6,
+              "no_tool": 0
+            },
+            "no_tool": {
+              "calendar": 2,
+              "email": 1,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 2,
+              "no_tool": 1
+            }
+          }
+        },
+        "adversarial": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.21830698771644177,
+          "reliability": [
+            {
+              "lo": 0.2,
+              "hi": 0.3,
+              "n": 3,
+              "conf": 0.28058194285898636,
+              "acc": 0.0
+            },
+            {
+              "lo": 0.3,
+              "hi": 0.4,
+              "n": 5,
+              "conf": 0.36803148161416077,
+              "acc": 0.0
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 9,
+              "conf": 0.4641842491999431,
+              "acc": 0.3333333333333333
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 7,
+              "conf": 0.5823395636881903,
+              "acc": 0.2857142857142857
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 8,
+              "conf": 0.6523173392621391,
+              "acc": 0.5
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 4,
+              "conf": 0.7497277221542022,
+              "acc": 0.5
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 6,
+              "conf": 0.8500623907800198,
+              "acc": 0.5
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 8,
+              "conf": 0.9576983766454331,
+              "acc": 0.875
+            }
+          ],
+          "accuracy": 0.42,
+          "macro_f1": 0.3948225385725386,
+          "confusion": {
+            "calendar": {
+              "calendar": 4,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 2,
+              "no_tool": 0
+            },
+            "email": {
+              "calendar": 1,
+              "email": 2,
+              "web_search": 0,
+              "crm_lookup": 1,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 1,
+              "no_tool": 1
+            },
+            "web_search": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 1,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 1,
+              "human_handoff": 4,
+              "no_tool": 1
+            },
+            "crm_lookup": {
+              "calendar": 1,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 3,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 2,
+              "no_tool": 0
+            },
+            "code_exec": {
+              "calendar": 1,
+              "email": 1,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 1,
+              "file_search": 1,
+              "human_handoff": 0,
+              "no_tool": 2
+            },
+            "file_search": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 1,
+              "human_handoff": 4,
+              "no_tool": 2
+            },
+            "human_handoff": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 6,
+              "no_tool": 0
+            },
+            "no_tool": {
+              "calendar": 1,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 1,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 1,
+              "no_tool": 3
+            }
+          }
+        }
+      },
+      "latency_p50": 192.53475000732578,
+      "latency_p95": 209.49104564788286,
+      "latency_p50_net": 192.53475000732578,
+      "rtt_median": 0.0,
+      "cost_per_1k": 0.0
+    },
+    "injection": {
+      "n": 150,
+      "failure_rate": 0.0,
+      "ece": 0.23049866666666666,
+      "reliability": [
+        {
+          "lo": 0.5,
+          "hi": 0.6,
+          "n": 9,
+          "conf": 0.5461555555555555,
+          "acc": 0.2222222222222222
+        },
+        {
+          "lo": 0.6,
+          "hi": 0.7,
+          "n": 9,
+          "conf": 0.6598777777777778,
+          "acc": 0.4444444444444444
+        },
+        {
+          "lo": 0.7,
+          "hi": 0.8,
+          "n": 16,
+          "conf": 0.75939375,
+          "acc": 0.5625
+        },
+        {
+          "lo": 0.8,
+          "hi": 0.9,
+          "n": 29,
+          "conf": 0.8514551724137931,
+          "acc": 0.6551724137931034
+        },
+        {
+          "lo": 0.9,
+          "hi": 1.0,
+          "n": 87,
+          "conf": 0.9756091954022988,
+          "acc": 0.735632183908046
+        }
+      ],
+      "precision": 0.6533333333333333,
+      "recall": 0.6533333333333333,
+      "f1": 0.6533333333333333,
+      "auroc": 0.7248,
+      "fpr_hard_negatives": 0.6,
+      "by_difficulty": {
+        "easy": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.061712000000000045,
+          "reliability": [
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 3,
+              "conf": 0.5197666666666666,
+              "acc": 0.3333333333333333
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 3,
+              "conf": 0.6939333333333333,
+              "acc": 0.6666666666666666
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 2,
+              "conf": 0.77,
+              "acc": 0.5
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 9,
+              "conf": 0.8499444444444444,
+              "acc": 0.6666666666666666
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 33,
+              "conf": 0.9774242424242425,
+              "acc": 0.9696969696969697
+            }
+          ],
+          "precision": 0.84,
+          "recall": 0.84,
+          "f1": 0.8399999999999999,
+          "auroc": 0.9232,
+          "fpr_hard_negatives": null
+        },
+        "ambiguous": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.306884,
+          "reliability": [
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 4,
+              "conf": 0.568725,
+              "acc": 0.0
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 3,
+              "conf": 0.64,
+              "acc": 0.6666666666666666
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 7,
+              "conf": 0.7540571428571428,
+              "acc": 0.2857142857142857
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 10,
+              "conf": 0.8524800000000001,
+              "acc": 0.8
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 26,
+              "conf": 0.9686961538461538,
+              "acc": 0.6153846153846154
+            }
+          ],
+          "precision": 0.5882352941176471,
+          "recall": 0.4,
+          "f1": 0.4761904761904762,
+          "auroc": 0.6,
+          "fpr_hard_negatives": null
+        },
+        "adversarial": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.3528240000000001,
+          "reliability": [
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 2,
+              "conf": 0.5406,
+              "acc": 0.5
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 3,
+              "conf": 0.6457,
+              "acc": 0.0
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 7,
+              "conf": 0.7617,
+              "acc": 0.8571428571428571
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 10,
+              "conf": 0.85179,
+              "acc": 0.5
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 28,
+              "conf": 0.9798892857142858,
+              "acc": 0.5714285714285714
+            }
+          ],
+          "precision": 0.5454545454545454,
+          "recall": 0.72,
+          "f1": 0.6206896551724138,
+          "auroc": 0.6368,
+          "fpr_hard_negatives": 0.6
+        }
+      },
+      "latency_p50": 22.924624499864876,
+      "latency_p95": 26.58648954529781,
+      "latency_p50_net": 22.924624499864876,
+      "rtt_median": 0.0,
+      "cost_per_1k": 0.0
+    },
+    "judge": {
+      "n": 150,
+      "failure_rate": 0.0,
+      "ece": 0.25177230684590307,
+      "reliability": [
+        {
+          "lo": 0.2,
+          "hi": 0.3,
+          "n": 10,
+          "conf": 0.27144001405030016,
+          "acc": 0.4
+        },
+        {
+          "lo": 0.3,
+          "hi": 0.4,
+          "n": 34,
+          "conf": 0.3421927988606633,
+          "acc": 0.3235294117647059
+        },
+        {
+          "lo": 0.4,
+          "hi": 0.5,
+          "n": 35,
+          "conf": 0.44083667897670964,
+          "acc": 0.17142857142857143
+        },
+        {
+          "lo": 0.5,
+          "hi": 0.6,
+          "n": 31,
+          "conf": 0.5482781100253294,
+          "acc": 0.22580645161290322
+        },
+        {
+          "lo": 0.6,
+          "hi": 0.7,
+          "n": 16,
+          "conf": 0.6473688243168132,
+          "acc": 0.3125
+        },
+        {
+          "lo": 0.7,
+          "hi": 0.8,
+          "n": 15,
+          "conf": 0.749263172386165,
+          "acc": 0.2
+        },
+        {
+          "lo": 0.8,
+          "hi": 0.9,
+          "n": 6,
+          "conf": 0.8270561760490618,
+          "acc": 0.6666666666666666
+        },
+        {
+          "lo": 0.9,
+          "hi": 1.0,
+          "n": 3,
+          "conf": 0.9535333333333332,
+          "acc": 0.3333333333333333
+        }
+      ],
+      "exact": 0.2733333333333333,
+      "within_1": 0.5866666666666667,
+      "mae": 1.46,
+      "by_difficulty": {
+        "easy": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.27375061220552616,
+          "reliability": [
+            {
+              "lo": 0.2,
+              "hi": 0.3,
+              "n": 3,
+              "conf": 0.27099999999999996,
+              "acc": 0.0
+            },
+            {
+              "lo": 0.3,
+              "hi": 0.4,
+              "n": 13,
+              "conf": 0.35220731262853466,
+              "acc": 0.6153846153846154
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 13,
+              "conf": 0.45084557993199426,
+              "acc": 0.0
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 7,
+              "conf": 0.5315639150370677,
+              "acc": 0.42857142857142855
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 4,
+              "conf": 0.6529913941394139,
+              "acc": 0.5
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 4,
+              "conf": 0.7590002388585024,
+              "acc": 0.5
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 4,
+              "conf": 0.832929799520048,
+              "acc": 0.75
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 2,
+              "conf": 0.9458,
+              "acc": 0.5
+            }
+          ],
+          "exact": 0.38,
+          "within_1": 0.48,
+          "mae": 1.62
+        },
+        "ambiguous": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.34508953158533534,
+          "reliability": [
+            {
+              "lo": 0.2,
+              "hi": 0.3,
+              "n": 1,
+              "conf": 0.23862386238623862,
+              "acc": 0.0
+            },
+            {
+              "lo": 0.3,
+              "hi": 0.4,
+              "n": 9,
+              "conf": 0.3258702214665911,
+              "acc": 0.1111111111111111
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 10,
+              "conf": 0.43107925871889263,
+              "acc": 0.3
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 13,
+              "conf": 0.564191718666071,
+              "acc": 0.15384615384615385
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 7,
+              "conf": 0.6432335826976215,
+              "acc": 0.2857142857142857
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 9,
+              "conf": 0.7507242859071318,
+              "acc": 0.1111111111111111
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 1,
+              "conf": 0.8214178582141786,
+              "acc": 1.0
+            }
+          ],
+          "exact": 0.2,
+          "within_1": 0.66,
+          "mae": 1.22
+        },
+        "adversarial": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.32253721434689214,
+          "reliability": [
+            {
+              "lo": 0.2,
+              "hi": 0.3,
+              "n": 6,
+              "conf": 0.2771293796861271,
+              "acc": 0.6666666666666666
+            },
+            {
+              "lo": 0.3,
+              "hi": 0.4,
+              "n": 12,
+              "conf": 0.34358567532435674,
+              "acc": 0.16666666666666666
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 12,
+              "conf": 0.43812488648999887,
+              "acc": 0.25
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 11,
+              "conf": 0.5401074238969833,
+              "acc": 0.18181818181818182
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 5,
+              "conf": 0.648660106725601,
+              "acc": 0.2
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 2,
+              "conf": 0.7232140285971402,
+              "acc": 0.0
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 1,
+              "conf": 0.8092,
+              "acc": 0.0
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 1,
+              "conf": 0.969,
+              "acc": 0.0
+            }
+          ],
+          "exact": 0.24,
+          "within_1": 0.62,
+          "mae": 1.54
+        }
+      },
+      "latency_p50": 23.696021002251655,
+      "latency_p95": 32.32665639079645,
+      "latency_p50_net": 23.696021002251655,
+      "rtt_median": 0.0,
+      "cost_per_1k": 0.0
+    }
+  },
+  "laya": {
+    "routing": {
+      "n": 150,
+      "failure_rate": 0.0,
+      "ece": 0.42732574767694775,
+      "reliability": [
+        {
+          "lo": 0.3,
+          "hi": 0.4,
+          "n": 8,
+          "conf": 0.3781048064370481,
+          "acc": 0.125
+        },
+        {
+          "lo": 0.4,
+          "hi": 0.5,
+          "n": 16,
+          "conf": 0.45009275041942753,
+          "acc": 0.125
+        },
+        {
+          "lo": 0.5,
+          "hi": 0.6,
+          "n": 16,
+          "conf": 0.5514212496359,
+          "acc": 0.1875
+        },
+        {
+          "lo": 0.6,
+          "hi": 0.7,
+          "n": 28,
+          "conf": 0.6390965888745076,
+          "acc": 0.07142857142857142
+        },
+        {
+          "lo": 0.7,
+          "hi": 0.8,
+          "n": 23,
+          "conf": 0.758558577737687,
+          "acc": 0.30434782608695654
+        },
+        {
+          "lo": 0.8,
+          "hi": 0.9,
+          "n": 13,
+          "conf": 0.8457039106089662,
+          "acc": 0.23076923076923078
+        },
+        {
+          "lo": 0.9,
+          "hi": 1.0,
+          "n": 46,
+          "conf": 0.9720455887998035,
+          "acc": 0.6086956521739131
+        }
+      ],
+      "accuracy": 0.30666666666666664,
+      "macro_f1": 0.2977299842895034,
+      "confusion": {
+        "calendar": {
+          "calendar": 4,
+          "email": 1,
+          "web_search": 0,
+          "crm_lookup": 0,
+          "code_exec": 0,
+          "file_search": 0,
+          "human_handoff": 14,
+          "no_tool": 0
+        },
+        "email": {
+          "calendar": 0,
+          "email": 7,
+          "web_search": 0,
+          "crm_lookup": 1,
+          "code_exec": 0,
+          "file_search": 0,
+          "human_handoff": 9,
+          "no_tool": 2
+        },
+        "web_search": {
+          "calendar": 1,
+          "email": 0,
+          "web_search": 2,
+          "crm_lookup": 0,
+          "code_exec": 0,
+          "file_search": 1,
+          "human_handoff": 12,
+          "no_tool": 3
+        },
+        "crm_lookup": {
+          "calendar": 0,
+          "email": 1,
+          "web_search": 0,
+          "crm_lookup": 8,
+          "code_exec": 0,
+          "file_search": 0,
+          "human_handoff": 9,
+          "no_tool": 1
+        },
+        "code_exec": {
+          "calendar": 0,
+          "email": 1,
+          "web_search": 0,
+          "crm_lookup": 1,
+          "code_exec": 4,
+          "file_search": 2,
+          "human_handoff": 10,
+          "no_tool": 1
+        },
+        "file_search": {
+          "calendar": 0,
+          "email": 0,
+          "web_search": 0,
+          "crm_lookup": 1,
+          "code_exec": 0,
+          "file_search": 1,
+          "human_handoff": 15,
+          "no_tool": 2
+        },
+        "human_handoff": {
+          "calendar": 0,
+          "email": 0,
+          "web_search": 0,
+          "crm_lookup": 0,
+          "code_exec": 0,
+          "file_search": 0,
+          "human_handoff": 18,
+          "no_tool": 0
+        },
+        "no_tool": {
+          "calendar": 0,
+          "email": 1,
+          "web_search": 0,
+          "crm_lookup": 1,
+          "code_exec": 0,
+          "file_search": 0,
+          "human_handoff": 14,
+          "no_tool": 2
+        }
+      },
+      "by_difficulty": {
+        "easy": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.353174955912643,
+          "reliability": [
+            {
+              "lo": 0.3,
+              "hi": 0.4,
+              "n": 1,
+              "conf": 0.3456,
+              "acc": 0.0
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 7,
+              "conf": 0.46301313274184563,
+              "acc": 0.14285714285714285
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 6,
+              "conf": 0.5522699703595331,
+              "acc": 0.3333333333333333
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 8,
+              "conf": 0.6325203170317032,
+              "acc": 0.125
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 6,
+              "conf": 0.7706385944903228,
+              "acc": 0.3333333333333333
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 3,
+              "conf": 0.8573116976604679,
+              "acc": 0.3333333333333333
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 19,
+              "conf": 0.9738161499002667,
+              "acc": 0.6842105263157895
+            }
+          ],
+          "accuracy": 0.4,
+          "macro_f1": 0.4063748386116807,
+          "confusion": {
+            "calendar": {
+              "calendar": 2,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 5,
+              "no_tool": 0
+            },
+            "email": {
+              "calendar": 0,
+              "email": 4,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 2,
+              "no_tool": 0
+            },
+            "web_search": {
+              "calendar": 1,
+              "email": 0,
+              "web_search": 1,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 3,
+              "no_tool": 1
+            },
+            "crm_lookup": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 4,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 3,
+              "no_tool": 0
+            },
+            "code_exec": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 2,
+              "file_search": 1,
+              "human_handoff": 3,
+              "no_tool": 0
+            },
+            "file_search": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 5,
+              "no_tool": 1
+            },
+            "human_handoff": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 6,
+              "no_tool": 0
+            },
+            "no_tool": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 5,
+              "no_tool": 1
+            }
+          }
+        },
+        "ambiguous": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.554862476246162,
+          "reliability": [
+            {
+              "lo": 0.3,
+              "hi": 0.4,
+              "n": 3,
+              "conf": 0.3808132179884655,
+              "acc": 0.3333333333333333
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 2,
+              "conf": 0.442529202079792,
+              "acc": 0.0
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 5,
+              "conf": 0.5434715071507151,
+              "acc": 0.0
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 12,
+              "conf": 0.6384449889342138,
+              "acc": 0.0
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 8,
+              "conf": 0.7552659948106233,
+              "acc": 0.375
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 8,
+              "conf": 0.8465769681168946,
+              "acc": 0.0
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 12,
+              "conf": 0.9601820539832366,
+              "acc": 0.4166666666666667
+            }
+          ],
+          "accuracy": 0.18,
+          "macro_f1": 0.12010869565217391,
+          "confusion": {
+            "calendar": {
+              "calendar": 0,
+              "email": 1,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 5,
+              "no_tool": 0
+            },
+            "email": {
+              "calendar": 0,
+              "email": 1,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 5,
+              "no_tool": 1
+            },
+            "web_search": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 5,
+              "no_tool": 1
+            },
+            "crm_lookup": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 1,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 4,
+              "no_tool": 1
+            },
+            "code_exec": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 1,
+              "file_search": 0,
+              "human_handoff": 5,
+              "no_tool": 1
+            },
+            "file_search": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 1,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 5,
+              "no_tool": 0
+            },
+            "human_handoff": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 6,
+              "no_tool": 0
+            },
+            "no_tool": {
+              "calendar": 0,
+              "email": 1,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 5,
+              "no_tool": 0
+            }
+          }
+        },
+        "adversarial": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.3879558108720381,
+          "reliability": [
+            {
+              "lo": 0.3,
+              "hi": 0.4,
+              "n": 4,
+              "conf": 0.384199699382747,
+              "acc": 0.0
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 7,
+              "conf": 0.4393333819083338,
+              "acc": 0.14285714285714285
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 5,
+              "conf": 0.5583525272527253,
+              "acc": 0.2
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 8,
+              "conf": 0.6466502606277527,
+              "acc": 0.125
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 9,
+              "conf": 0.7534319736155419,
+              "acc": 0.2222222222222222
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 2,
+              "conf": 0.8248,
+              "acc": 1.0
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 15,
+              "conf": 0.9792937059258037,
+              "acc": 0.6666666666666666
+            }
+          ],
+          "accuracy": 0.34,
+          "macro_f1": 0.3348214285714286,
+          "confusion": {
+            "calendar": {
+              "calendar": 2,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 4,
+              "no_tool": 0
+            },
+            "email": {
+              "calendar": 0,
+              "email": 2,
+              "web_search": 0,
+              "crm_lookup": 1,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 2,
+              "no_tool": 1
+            },
+            "web_search": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 1,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 1,
+              "human_handoff": 4,
+              "no_tool": 1
+            },
+            "crm_lookup": {
+              "calendar": 0,
+              "email": 1,
+              "web_search": 0,
+              "crm_lookup": 3,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 2,
+              "no_tool": 0
+            },
+            "code_exec": {
+              "calendar": 0,
+              "email": 1,
+              "web_search": 0,
+              "crm_lookup": 1,
+              "code_exec": 1,
+              "file_search": 1,
+              "human_handoff": 2,
+              "no_tool": 0
+            },
+            "file_search": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 1,
+              "human_handoff": 5,
+              "no_tool": 1
+            },
+            "human_handoff": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 6,
+              "no_tool": 0
+            },
+            "no_tool": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 1,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 4,
+              "no_tool": 1
+            }
+          }
+        }
+      },
+      "latency_p50": 24.56241649633739,
+      "latency_p95": 28.770364384399727,
+      "latency_p50_net": 24.56241649633739,
+      "rtt_median": 0.0,
+      "cost_per_1k": 0.0
+    },
+    "injection": {
+      "n": 150,
+      "failure_rate": 0.0,
+      "ece": 0.23049866666666666,
+      "reliability": [
+        {
+          "lo": 0.5,
+          "hi": 0.6,
+          "n": 9,
+          "conf": 0.5461555555555555,
+          "acc": 0.2222222222222222
+        },
+        {
+          "lo": 0.6,
+          "hi": 0.7,
+          "n": 9,
+          "conf": 0.6598777777777778,
+          "acc": 0.4444444444444444
+        },
+        {
+          "lo": 0.7,
+          "hi": 0.8,
+          "n": 16,
+          "conf": 0.75939375,
+          "acc": 0.5625
+        },
+        {
+          "lo": 0.8,
+          "hi": 0.9,
+          "n": 29,
+          "conf": 0.8514551724137931,
+          "acc": 0.6551724137931034
+        },
+        {
+          "lo": 0.9,
+          "hi": 1.0,
+          "n": 87,
+          "conf": 0.9756091954022988,
+          "acc": 0.735632183908046
+        }
+      ],
+      "precision": 0.6533333333333333,
+      "recall": 0.6533333333333333,
+      "f1": 0.6533333333333333,
+      "auroc": 0.7248,
+      "fpr_hard_negatives": 0.6,
+      "by_difficulty": {
+        "easy": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.061712000000000045,
+          "reliability": [
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 3,
+              "conf": 0.5197666666666666,
+              "acc": 0.3333333333333333
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 3,
+              "conf": 0.6939333333333333,
+              "acc": 0.6666666666666666
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 2,
+              "conf": 0.77,
+              "acc": 0.5
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 9,
+              "conf": 0.8499444444444444,
+              "acc": 0.6666666666666666
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 33,
+              "conf": 0.9774242424242425,
+              "acc": 0.9696969696969697
+            }
+          ],
+          "precision": 0.84,
+          "recall": 0.84,
+          "f1": 0.8399999999999999,
+          "auroc": 0.9232,
+          "fpr_hard_negatives": null
+        },
+        "ambiguous": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.306884,
+          "reliability": [
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 4,
+              "conf": 0.568725,
+              "acc": 0.0
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 3,
+              "conf": 0.64,
+              "acc": 0.6666666666666666
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 7,
+              "conf": 0.7540571428571428,
+              "acc": 0.2857142857142857
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 10,
+              "conf": 0.8524800000000001,
+              "acc": 0.8
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 26,
+              "conf": 0.9686961538461538,
+              "acc": 0.6153846153846154
+            }
+          ],
+          "precision": 0.5882352941176471,
+          "recall": 0.4,
+          "f1": 0.4761904761904762,
+          "auroc": 0.6,
+          "fpr_hard_negatives": null
+        },
+        "adversarial": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.3528240000000001,
+          "reliability": [
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 2,
+              "conf": 0.5406,
+              "acc": 0.5
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 3,
+              "conf": 0.6457,
+              "acc": 0.0
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 7,
+              "conf": 0.7617,
+              "acc": 0.8571428571428571
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 10,
+              "conf": 0.85179,
+              "acc": 0.5
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 28,
+              "conf": 0.9798892857142858,
+              "acc": 0.5714285714285714
+            }
+          ],
+          "precision": 0.5454545454545454,
+          "recall": 0.72,
+          "f1": 0.6206896551724138,
+          "auroc": 0.6368,
+          "fpr_hard_negatives": 0.6
+        }
+      },
+      "latency_p50": 22.949645499465987,
+      "latency_p95": 26.245703636959668,
+      "latency_p50_net": 22.949645499465987,
+      "rtt_median": 0.0,
+      "cost_per_1k": 0.0
+    },
+    "judge": {
+      "n": 150,
+      "failure_rate": 0.0,
+      "ece": 0.25177230684590307,
+      "reliability": [
+        {
+          "lo": 0.2,
+          "hi": 0.3,
+          "n": 10,
+          "conf": 0.27144001405030016,
+          "acc": 0.4
+        },
+        {
+          "lo": 0.3,
+          "hi": 0.4,
+          "n": 34,
+          "conf": 0.3421927988606633,
+          "acc": 0.3235294117647059
+        },
+        {
+          "lo": 0.4,
+          "hi": 0.5,
+          "n": 35,
+          "conf": 0.44083667897670964,
+          "acc": 0.17142857142857143
+        },
+        {
+          "lo": 0.5,
+          "hi": 0.6,
+          "n": 31,
+          "conf": 0.5482781100253294,
+          "acc": 0.22580645161290322
+        },
+        {
+          "lo": 0.6,
+          "hi": 0.7,
+          "n": 16,
+          "conf": 0.6473688243168132,
+          "acc": 0.3125
+        },
+        {
+          "lo": 0.7,
+          "hi": 0.8,
+          "n": 15,
+          "conf": 0.749263172386165,
+          "acc": 0.2
+        },
+        {
+          "lo": 0.8,
+          "hi": 0.9,
+          "n": 6,
+          "conf": 0.8270561760490618,
+          "acc": 0.6666666666666666
+        },
+        {
+          "lo": 0.9,
+          "hi": 1.0,
+          "n": 3,
+          "conf": 0.9535333333333332,
+          "acc": 0.3333333333333333
+        }
+      ],
+      "exact": 0.2733333333333333,
+      "within_1": 0.5866666666666667,
+      "mae": 1.46,
+      "by_difficulty": {
+        "easy": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.27375061220552616,
+          "reliability": [
+            {
+              "lo": 0.2,
+              "hi": 0.3,
+              "n": 3,
+              "conf": 0.27099999999999996,
+              "acc": 0.0
+            },
+            {
+              "lo": 0.3,
+              "hi": 0.4,
+              "n": 13,
+              "conf": 0.35220731262853466,
+              "acc": 0.6153846153846154
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 13,
+              "conf": 0.45084557993199426,
+              "acc": 0.0
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 7,
+              "conf": 0.5315639150370677,
+              "acc": 0.42857142857142855
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 4,
+              "conf": 0.6529913941394139,
+              "acc": 0.5
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 4,
+              "conf": 0.7590002388585024,
+              "acc": 0.5
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 4,
+              "conf": 0.832929799520048,
+              "acc": 0.75
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 2,
+              "conf": 0.9458,
+              "acc": 0.5
+            }
+          ],
+          "exact": 0.38,
+          "within_1": 0.48,
+          "mae": 1.62
+        },
+        "ambiguous": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.34508953158533534,
+          "reliability": [
+            {
+              "lo": 0.2,
+              "hi": 0.3,
+              "n": 1,
+              "conf": 0.23862386238623862,
+              "acc": 0.0
+            },
+            {
+              "lo": 0.3,
+              "hi": 0.4,
+              "n": 9,
+              "conf": 0.3258702214665911,
+              "acc": 0.1111111111111111
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 10,
+              "conf": 0.43107925871889263,
+              "acc": 0.3
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 13,
+              "conf": 0.564191718666071,
+              "acc": 0.15384615384615385
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 7,
+              "conf": 0.6432335826976215,
+              "acc": 0.2857142857142857
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 9,
+              "conf": 0.7507242859071318,
+              "acc": 0.1111111111111111
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 1,
+              "conf": 0.8214178582141786,
+              "acc": 1.0
+            }
+          ],
+          "exact": 0.2,
+          "within_1": 0.66,
+          "mae": 1.22
+        },
+        "adversarial": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.32253721434689214,
+          "reliability": [
+            {
+              "lo": 0.2,
+              "hi": 0.3,
+              "n": 6,
+              "conf": 0.2771293796861271,
+              "acc": 0.6666666666666666
+            },
+            {
+              "lo": 0.3,
+              "hi": 0.4,
+              "n": 12,
+              "conf": 0.34358567532435674,
+              "acc": 0.16666666666666666
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 12,
+              "conf": 0.43812488648999887,
+              "acc": 0.25
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 11,
+              "conf": 0.5401074238969833,
+              "acc": 0.18181818181818182
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 5,
+              "conf": 0.648660106725601,
+              "acc": 0.2
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 2,
+              "conf": 0.7232140285971402,
+              "acc": 0.0
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 1,
+              "conf": 0.8092,
+              "acc": 0.0
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 1,
+              "conf": 0.969,
+              "acc": 0.0
+            }
+          ],
+          "exact": 0.24,
+          "within_1": 0.62,
+          "mae": 1.54
+        }
+      },
+      "latency_p50": 23.326062510022894,
+      "latency_p95": 33.18932119727833,
+      "latency_p50_net": 23.326062510022894,
+      "rtt_median": 0.0,
+      "cost_per_1k": 0.0
+    }
+  },
+  "openai": {
+    "routing": {
+      "n": 150,
+      "failure_rate": 0.0,
+      "ece": 0.040466666666666755,
+      "reliability": [
+        {
+          "lo": 0.3,
+          "hi": 0.4,
+          "n": 1,
+          "conf": 0.37,
+          "acc": 1.0
+        },
+        {
+          "lo": 0.4,
+          "hi": 0.5,
+          "n": 7,
+          "conf": 0.45,
+          "acc": 0.42857142857142855
+        },
+        {
+          "lo": 0.5,
+          "hi": 0.6,
+          "n": 18,
+          "conf": 0.5472222222222222,
+          "acc": 0.5555555555555556
+        },
+        {
+          "lo": 0.6,
+          "hi": 0.7,
+          "n": 8,
+          "conf": 0.6487499999999999,
+          "acc": 0.75
+        },
+        {
+          "lo": 0.7,
+          "hi": 0.8,
+          "n": 8,
+          "conf": 0.745,
+          "acc": 0.875
+        },
+        {
+          "lo": 0.8,
+          "hi": 0.9,
+          "n": 20,
+          "conf": 0.8625,
+          "acc": 0.8
+        },
+        {
+          "lo": 0.9,
+          "hi": 1.0,
+          "n": 88,
+          "conf": 0.9654545454545453,
+          "acc": 0.9886363636363636
+        }
+      ],
+      "accuracy": 0.8666666666666667,
+      "macro_f1": 0.8604576246944401,
+      "confusion": {
+        "calendar": {
+          "calendar": 18,
+          "email": 0,
+          "web_search": 1,
+          "crm_lookup": 0,
+          "code_exec": 0,
+          "file_search": 0,
+          "human_handoff": 0,
+          "no_tool": 0
+        },
+        "email": {
+          "calendar": 2,
+          "email": 12,
+          "web_search": 0,
+          "crm_lookup": 1,
+          "code_exec": 1,
+          "file_search": 1,
+          "human_handoff": 0,
+          "no_tool": 2
+        },
+        "web_search": {
+          "calendar": 0,
+          "email": 0,
+          "web_search": 19,
+          "crm_lookup": 0,
+          "code_exec": 0,
+          "file_search": 0,
+          "human_handoff": 0,
+          "no_tool": 0
+        },
+        "crm_lookup": {
+          "calendar": 0,
+          "email": 0,
+          "web_search": 0,
+          "crm_lookup": 19,
+          "code_exec": 0,
+          "file_search": 0,
+          "human_handoff": 0,
+          "no_tool": 0
+        },
+        "code_exec": {
+          "calendar": 0,
+          "email": 1,
+          "web_search": 0,
+          "crm_lookup": 0,
+          "code_exec": 9,
+          "file_search": 0,
+          "human_handoff": 0,
+          "no_tool": 9
+        },
+        "file_search": {
+          "calendar": 0,
+          "email": 0,
+          "web_search": 0,
+          "crm_lookup": 0,
+          "code_exec": 0,
+          "file_search": 19,
+          "human_handoff": 0,
+          "no_tool": 0
+        },
+        "human_handoff": {
+          "calendar": 0,
+          "email": 0,
+          "web_search": 1,
+          "crm_lookup": 0,
+          "code_exec": 0,
+          "file_search": 0,
+          "human_handoff": 16,
+          "no_tool": 1
+        },
+        "no_tool": {
+          "calendar": 0,
+          "email": 0,
+          "web_search": 0,
+          "crm_lookup": 0,
+          "code_exec": 0,
+          "file_search": 0,
+          "human_handoff": 0,
+          "no_tool": 18
+        }
+      },
+      "by_difficulty": {
+        "easy": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.059199999999999975,
+          "reliability": [
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 4,
+              "conf": 0.5475,
+              "acc": 0.5
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 3,
+              "conf": 0.6366666666666667,
+              "acc": 0.6666666666666666
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 3,
+              "conf": 0.7333333333333334,
+              "acc": 1.0
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 6,
+              "conf": 0.8666666666666667,
+              "acc": 1.0
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 34,
+              "conf": 0.9682352941176471,
+              "acc": 1.0
+            }
+          ],
+          "accuracy": 0.94,
+          "macro_f1": 0.9333333333333333,
+          "confusion": {
+            "calendar": {
+              "calendar": 7,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 0
+            },
+            "email": {
+              "calendar": 0,
+              "email": 6,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 0
+            },
+            "web_search": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 6,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 0
+            },
+            "crm_lookup": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 7,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 0
+            },
+            "code_exec": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 3,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 3
+            },
+            "file_search": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 6,
+              "human_handoff": 0,
+              "no_tool": 0
+            },
+            "human_handoff": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 6,
+              "no_tool": 0
+            },
+            "no_tool": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 6
+            }
+          }
+        },
+        "ambiguous": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.07099999999999998,
+          "reliability": [
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 4,
+              "conf": 0.45,
+              "acc": 0.25
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 9,
+              "conf": 0.5355555555555556,
+              "acc": 0.4444444444444444
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 4,
+              "conf": 0.6475,
+              "acc": 1.0
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 2,
+              "conf": 0.765,
+              "acc": 1.0
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 7,
+              "conf": 0.8585714285714285,
+              "acc": 0.8571428571428571
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 24,
+              "conf": 0.96,
+              "acc": 0.9583333333333334
+            }
+          ],
+          "accuracy": 0.8,
+          "macro_f1": 0.794293133766818,
+          "confusion": {
+            "calendar": {
+              "calendar": 6,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 0
+            },
+            "email": {
+              "calendar": 1,
+              "email": 2,
+              "web_search": 0,
+              "crm_lookup": 1,
+              "code_exec": 0,
+              "file_search": 1,
+              "human_handoff": 0,
+              "no_tool": 2
+            },
+            "web_search": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 6,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 0
+            },
+            "crm_lookup": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 6,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 0
+            },
+            "code_exec": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 3,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 4
+            },
+            "file_search": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 6,
+              "human_handoff": 0,
+              "no_tool": 0
+            },
+            "human_handoff": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 5,
+              "no_tool": 1
+            },
+            "no_tool": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 6
+            }
+          }
+        },
+        "adversarial": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.128,
+          "reliability": [
+            {
+              "lo": 0.3,
+              "hi": 0.4,
+              "n": 1,
+              "conf": 0.37,
+              "acc": 1.0
+            },
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 3,
+              "conf": 0.44999999999999996,
+              "acc": 0.6666666666666666
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 5,
+              "conf": 0.568,
+              "acc": 0.8
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 1,
+              "conf": 0.69,
+              "acc": 0.0
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 3,
+              "conf": 0.7433333333333333,
+              "acc": 0.6666666666666666
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 7,
+              "conf": 0.8628571428571429,
+              "acc": 0.5714285714285714
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 30,
+              "conf": 0.9666666666666667,
+              "acc": 1.0
+            }
+          ],
+          "accuracy": 0.86,
+          "macro_f1": 0.8502299783549784,
+          "confusion": {
+            "calendar": {
+              "calendar": 5,
+              "email": 0,
+              "web_search": 1,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 0
+            },
+            "email": {
+              "calendar": 1,
+              "email": 4,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 1,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 0
+            },
+            "web_search": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 7,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 0
+            },
+            "crm_lookup": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 6,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 0
+            },
+            "code_exec": {
+              "calendar": 0,
+              "email": 1,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 3,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 2
+            },
+            "file_search": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 7,
+              "human_handoff": 0,
+              "no_tool": 0
+            },
+            "human_handoff": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 1,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 5,
+              "no_tool": 0
+            },
+            "no_tool": {
+              "calendar": 0,
+              "email": 0,
+              "web_search": 0,
+              "crm_lookup": 0,
+              "code_exec": 0,
+              "file_search": 0,
+              "human_handoff": 0,
+              "no_tool": 6
+            }
+          }
+        }
+      },
+      "latency_p50": 216.4243750012247,
+      "latency_p95": 408.101456097211,
+      "latency_p50_net": 87.22160450997762,
+      "rtt_median": 129.20277049124707,
+      "cost_per_1k": 0.025553
+    },
+    "injection": {
+      "n": 150,
+      "failure_rate": 0.0,
+      "ece": 0.02606666666666666,
+      "reliability": [
+        {
+          "lo": 0.5,
+          "hi": 0.6,
+          "n": 2,
+          "conf": 0.535,
+          "acc": 1.0
+        },
+        {
+          "lo": 0.6,
+          "hi": 0.7,
+          "n": 5,
+          "conf": 0.6479999999999999,
+          "acc": 0.4
+        },
+        {
+          "lo": 0.7,
+          "hi": 0.8,
+          "n": 4,
+          "conf": 0.7324999999999999,
+          "acc": 0.5
+        },
+        {
+          "lo": 0.8,
+          "hi": 0.9,
+          "n": 2,
+          "conf": 0.825,
+          "acc": 1.0
+        },
+        {
+          "lo": 0.9,
+          "hi": 1.0,
+          "n": 137,
+          "conf": 0.996058394160584,
+          "acc": 0.9927007299270073
+        }
+      ],
+      "precision": 1.0,
+      "recall": 0.92,
+      "f1": 0.9583333333333334,
+      "auroc": 0.9927111111111111,
+      "fpr_hard_negatives": 0.0,
+      "by_difficulty": {
+        "easy": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.03880000000000008,
+          "reliability": [
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 1,
+              "conf": 0.55,
+              "acc": 1.0
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 3,
+              "conf": 0.6466666666666666,
+              "acc": 0.6666666666666666
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 3,
+              "conf": 0.7433333333333333,
+              "acc": 0.3333333333333333
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 43,
+              "conf": 0.9953488372093022,
+              "acc": 1.0
+            }
+          ],
+          "precision": 1.0,
+          "recall": 0.88,
+          "f1": 0.9361702127659575,
+          "auroc": 1.0,
+          "fpr_hard_negatives": null
+        },
+        "ambiguous": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.0021999999999999797,
+          "reliability": [
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 50,
+              "conf": 0.9978,
+              "acc": 1.0
+            }
+          ],
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "auroc": 1.0,
+          "fpr_hard_negatives": null
+        },
+        "adversarial": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.06400000000000006,
+          "reliability": [
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 1,
+              "conf": 0.52,
+              "acc": 1.0
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 2,
+              "conf": 0.6499999999999999,
+              "acc": 0.0
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 1,
+              "conf": 0.7,
+              "acc": 1.0
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 2,
+              "conf": 0.825,
+              "acc": 1.0
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 44,
+              "conf": 0.9947727272727274,
+              "acc": 0.9772727272727273
+            }
+          ],
+          "precision": 1.0,
+          "recall": 0.88,
+          "f1": 0.9361702127659575,
+          "auroc": 0.9776,
+          "fpr_hard_negatives": 0.0
+        }
+      },
+      "latency_p50": 213.09902098437306,
+      "latency_p95": 317.83769754401897,
+      "latency_p50_net": 83.89625049312599,
+      "rtt_median": 129.20277049124707,
+      "cost_per_1k": 0.024982
+    },
+    "judge": {
+      "n": 150,
+      "failure_rate": 0.0,
+      "ece": 0.11653333333333339,
+      "reliability": [
+        {
+          "lo": 0.4,
+          "hi": 0.5,
+          "n": 8,
+          "conf": 0.43875,
+          "acc": 0.375
+        },
+        {
+          "lo": 0.5,
+          "hi": 0.6,
+          "n": 13,
+          "conf": 0.5438461538461539,
+          "acc": 0.38461538461538464
+        },
+        {
+          "lo": 0.6,
+          "hi": 0.7,
+          "n": 8,
+          "conf": 0.63625,
+          "acc": 0.625
+        },
+        {
+          "lo": 0.7,
+          "hi": 0.8,
+          "n": 14,
+          "conf": 0.7428571428571429,
+          "acc": 0.5
+        },
+        {
+          "lo": 0.8,
+          "hi": 0.9,
+          "n": 29,
+          "conf": 0.8489655172413794,
+          "acc": 0.4827586206896552
+        },
+        {
+          "lo": 0.9,
+          "hi": 1.0,
+          "n": 78,
+          "conf": 0.9588461538461539,
+          "acc": 0.9487179487179487
+        }
+      ],
+      "exact": 0.72,
+      "within_1": 1.0,
+      "mae": 0.28,
+      "by_difficulty": {
+        "easy": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.17479999999999998,
+          "reliability": [
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 1,
+              "conf": 0.46,
+              "acc": 0.0
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 2,
+              "conf": 0.5700000000000001,
+              "acc": 1.0
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 4,
+              "conf": 0.6224999999999999,
+              "acc": 0.5
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 5,
+              "conf": 0.744,
+              "acc": 0.4
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 7,
+              "conf": 0.85,
+              "acc": 0.42857142857142855
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 31,
+              "conf": 0.9761290322580645,
+              "acc": 0.9032258064516129
+            }
+          ],
+          "exact": 0.74,
+          "within_1": 1.0,
+          "mae": 0.26
+        },
+        "ambiguous": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.12299999999999998,
+          "reliability": [
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 4,
+              "conf": 0.4425,
+              "acc": 0.5
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 5,
+              "conf": 0.55,
+              "acc": 0.4
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 1,
+              "conf": 0.69,
+              "acc": 1.0
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 4,
+              "conf": 0.7525,
+              "acc": 0.5
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 10,
+              "conf": 0.842,
+              "acc": 0.5
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 26,
+              "conf": 0.9450000000000001,
+              "acc": 0.9615384615384616
+            }
+          ],
+          "exact": 0.74,
+          "within_1": 1.0,
+          "mae": 0.26
+        },
+        "adversarial": {
+          "n": 50,
+          "failure_rate": 0.0,
+          "ece": 0.1702,
+          "reliability": [
+            {
+              "lo": 0.4,
+              "hi": 0.5,
+              "n": 3,
+              "conf": 0.4266666666666667,
+              "acc": 0.3333333333333333
+            },
+            {
+              "lo": 0.5,
+              "hi": 0.6,
+              "n": 6,
+              "conf": 0.53,
+              "acc": 0.16666666666666666
+            },
+            {
+              "lo": 0.6,
+              "hi": 0.7,
+              "n": 3,
+              "conf": 0.6366666666666667,
+              "acc": 0.6666666666666666
+            },
+            {
+              "lo": 0.7,
+              "hi": 0.8,
+              "n": 5,
+              "conf": 0.734,
+              "acc": 0.6
+            },
+            {
+              "lo": 0.8,
+              "hi": 0.9,
+              "n": 12,
+              "conf": 0.8541666666666666,
+              "acc": 0.5
+            },
+            {
+              "lo": 0.9,
+              "hi": 1.0,
+              "n": 21,
+              "conf": 0.9504761904761905,
+              "acc": 1.0
+            }
+          ],
+          "exact": 0.68,
+          "within_1": 1.0,
+          "mae": 0.32
+        }
+      },
+      "latency_p50": 214.17764599027578,
+      "latency_p95": 362.4842643985178,
+      "latency_p50_net": 84.97487549902871,
+      "rtt_median": 129.20277049124707,
+      "cost_per_1k": 0.022037
+    }
+  }
+}
