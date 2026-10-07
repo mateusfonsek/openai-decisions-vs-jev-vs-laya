@@ -4,11 +4,10 @@ from __future__ import annotations
 import httpx
 
 from bench.adapters.base import PermanentError, Request, Response
-from bench.adapters.http import post_json, timed_get
+from bench.adapters.http import post_json, timed_unauth_post
 from bench.adapters.keyed import parse_keyed_answer, to_keyed_question
 
 URL = "https://api.typesafe.ai/v1/systemone"
-PING_URL = "https://api.typesafe.ai/v1/models"
 
 
 class JevAdapter:
@@ -35,4 +34,4 @@ class JevAdapter:
                         provider_confidence=conf, latency_ms=ms, usage=usage, raw=data)
 
     def ping(self) -> float:
-        return timed_get(self.client, PING_URL, self.headers)
+        return timed_unauth_post(self.client, URL)

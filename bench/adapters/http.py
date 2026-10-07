@@ -38,3 +38,14 @@ def timed_get(client: httpx.Client, url: str, headers: dict) -> float:
     ms = (time.perf_counter() - t0) * 1000
     _check(r)
     return ms
+
+
+def timed_unauth_post(client: httpx.Client, url: str) -> float:
+    """RTT de rede: POST sem chave no mesmo endpoint das decisões; a API recusa (401/403)
+    na borda, sem chegar ao modelo e sem custo. Qualquer status conta como resposta."""
+    t0 = time.perf_counter()
+    try:
+        client.post(url, json={})
+    except httpx.TransportError as e:
+        raise TransientError(f"{type(e).__name__}: {e}") from e
+    return (time.perf_counter() - t0) * 1000

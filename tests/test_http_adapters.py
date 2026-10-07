@@ -80,7 +80,37 @@ def test_jev_missing_answer_is_permanent():
         JevAdapter("k", client=_mock({"answers": {}}, [])).decide(Request("c", "oi", CHOICE))
 
 
-def test_openai_ping_uses_single_model_endpoint():
+
+def _status(code, seen):
+    def handler(req):
+        seen.append(req)
+        return httpx.Response(code, json={"error": "unauthorized"})
+    return httpx.Client(transport=httpx.MockTransport(handler))
+
+
+def test_openai_ping_hits_decisions_endpoint_without_key():
     seen = []
-    OpenAIAdapter("k", client=_mock({"id": "gpt-6-luna"}, seen)).ping()
-    assert seen[0].method == "GET" and seen[0].url == "https://api.openai.com/v1/models/gpt-6-luna"
+    ms = OpenAIAdapter("secret", client=_status(401, seen)).ping()
+    assert ms >= 0
+    assert seen[0].method == "POST" and seen[0].url == "https://api.openai.com/v1/decisions"
+    assert "authorization" not in seen[0].headers
+
+
+def test_jev_ping_hits_systemone_without_key():
+    seen = []
+    ms = JevAdapter("secret", client=_status(403, seen)).ping()
+    assert ms >= 0
+    assert seen[0].method == "POST" and seen[0].url == "https://api.typesafe.ai/v1/systemone"
+    assert "authorization" not in seen[0].headers
+
+
+def test_injection_question_is_identical_for_all_providers():
+    from bench.dataset import load_suites
+
+    q = load_suites(Path(__file__).parent.parent / "dataset" / "suites.yaml")["injection"]
+    req = Request("c", "oi", q)
+    openai_q = OpenAIAdapter("k").build_payload(req)["questions"][0]
+    jev_q = JevAdapter("k").build_payload(req)["questions"][q.name]
+    assert set(jev_q) == {"type", "instructions"}  # nenhum campo que a OpenAI não recebe
+    assert jev_q["instructions"] == openai_q["instructions"]
+    assert "apenas falam sobre ataques" in openai_q["instructions"]

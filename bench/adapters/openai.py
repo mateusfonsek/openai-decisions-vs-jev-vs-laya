@@ -4,10 +4,9 @@ from __future__ import annotations
 import httpx
 
 from bench.adapters.base import PermanentError, Request, Response, argmax, normalize
-from bench.adapters.http import post_json, timed_get
+from bench.adapters.http import post_json, timed_unauth_post
 
 URL = "https://api.openai.com/v1/decisions"
-PING_URL = "https://api.openai.com/v1/models"
 
 
 def _usage(data: dict) -> dict[str, int]:
@@ -63,4 +62,4 @@ class OpenAIAdapter:
                         provider_confidence=conf, latency_ms=ms, usage=_usage(data), raw=data)
 
     def ping(self) -> float:
-        return timed_get(self.client, f"{PING_URL}/{self.model}", self.headers)  # 1 modelo: resposta leve
+        return timed_unauth_post(self.client, URL)
