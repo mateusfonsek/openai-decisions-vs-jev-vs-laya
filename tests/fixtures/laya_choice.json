@@ -1,0 +1,34 @@
+{
+ "model": "laya-rl-agent",
+ "answers": {
+  "tool": {
+   "type": "choice",
+   "choice": "calendar",
+   "probabilities": {
+    "calendar": 0.603,
+    "email": 0.0018,
+    "no_tool": 0.3952
+   },
+   "confidence": 0.3782,
+   "answer_confidence": 0.603,
+   "action": {
+    "act_probability": 1.0
+   }
+  }
+ },
+ "usage": {
+  "input_tokens": 39,
+  "output_tokens": 0,
+  "state_tokens": 9,
+  "state_tokens_dropped": 0,
+  "truncated": false,
+  "truncated_questions": []
+ },
+ "routing": {
+  "model": "multilingual",
+  "repo": "convaiinnovations/laya/multilingual",
+  "reason": "explicit model='multilingual'",
+  "detection": null,
+  "workflow": null
+ }
+}
