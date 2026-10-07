@@ -56,3 +56,45 @@ def test_laya_real_fixture_parses():
                  options={"calendar": "agenda e lembretes", "email": "e-mails", "no_tool": "conversa simples"})
     r = LayaAdapter(router=FakeRouter(out)).decide(Request("c", "marca uma reunião amanhã às 10h", q))
     assert r.answer in q.options and abs(sum(r.probabilities.values()) - 1) < 1e-6
+
+
+class BiasedRouter:
+    """Dá 0,6 à opção na 1ª posição e 0,4 a 'email' (o sinal real); 1,0 se 'email' estiver na frente."""
+
+    def __init__(self):
+        self.calls = []
+
+    def predict(self, state, questions, model=None):
+        (name, qd), = questions.items()
+        self.calls.append(list(qd.get("criteria") or []))
+        if qd["type"] != "choice":
+            return {"answers": {name: {"noul": 0.5}}}
+        order = list(qd["criteria"])
+        probs = {o: 0.0 for o in order}
+        probs[order[0]] += 0.6
+        probs["email"] += 0.4
+        return {"answers": {name: {"choice": max(probs, key=probs.get), "probabilities": probs}}}
+
+
+TRIO = Question(type="choice", name="tool", instructions="qual?",
+                options={"calendar": "agenda", "email": "e-mail", "no_tool": "nada"})
+
+
+def test_laya_default_follows_position_bias():
+    r = LayaAdapter(router=BiasedRouter()).decide(Request("c", "manda email", TRIO))
+    assert r.answer == "calendar" and r.provider == "laya"
+
+
+def test_laya_rotation_averages_out_position_bias():
+    router = BiasedRouter()
+    r = LayaAdapter(router=router, rotate=True).decide(Request("c", "manda email", TRIO))
+    assert r.provider == "laya-rot"
+    assert [c[0] for c in router.calls] == ["calendar", "email", "no_tool"]
+    assert r.answer == "email"
+    assert r.probabilities == pytest.approx({"calendar": 0.2, "email": 0.6, "no_tool": 0.2})
+
+
+def test_laya_rotation_skips_predicate():
+    router = BiasedRouter()
+    LayaAdapter(router=router, rotate=True).decide(Request("c", "oi", PRED))
+    assert len(router.calls) == 1

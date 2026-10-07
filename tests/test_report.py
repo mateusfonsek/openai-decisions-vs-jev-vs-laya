@@ -62,3 +62,10 @@ def test_write_report_creates_files(tmp_path):
         assert (out / name).exists(), name
     summary = (out / "summary.md").read_text(encoding="utf-8")
     assert "jev" in summary and "routing" in summary
+
+
+def test_net_latency_is_none_when_ping_slower_than_decision(tmp_path):
+    results = _results(tmp_path)
+    (results / "jev.rtt.json").write_text(json.dumps({"before": [900.0], "after": [900.0]}))
+    m = build_metrics(results, _dataset(tmp_path), PRICING)
+    assert m["jev"]["routing"]["latency_p50_net"] is None

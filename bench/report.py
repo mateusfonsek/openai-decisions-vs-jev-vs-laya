@@ -15,7 +15,7 @@ from bench.dataset import DIFFICULTIES, SUITES, load_cases, load_suites  # noqa:
 from bench.metrics import HEADLINE, percentile, suite_metrics  # noqa: E402
 from bench.runner import load_results  # noqa: E402
 
-COLORS = {"openai": "#10a37f", "jev": "#6b5bd6", "laya": "#e07a2f"}
+COLORS = {"openai": "#10a37f", "jev": "#6b5bd6", "laya": "#e07a2f", "laya-rot": "#b8860b"}
 
 
 def _rtt_median(results_dir: Path, provider: str) -> float:
@@ -52,7 +52,8 @@ def build_metrics(results_dir: Path, dataset_dir: Path, pricing: dict) -> dict:
             lat = [r.latency_ms for r in ok if r.latency_ms is not None]
             m["latency_p50"] = percentile(lat, 50)
             m["latency_p95"] = percentile(lat, 95)
-            m["latency_p50_net"] = max(0.0, m["latency_p50"] - rtt) if lat else None
+            # ping mais lento que a decisão = endpoint de ping não representa a rede; não estimar
+            m["latency_p50_net"] = m["latency_p50"] - rtt if lat and rtt < m["latency_p50"] else None
             m["rtt_median"] = rtt
             if ok:
                 tin = sum(r.usage.get("input_tokens", 0) for r in ok) / len(ok)

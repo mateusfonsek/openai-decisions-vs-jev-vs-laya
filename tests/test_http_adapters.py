@@ -78,3 +78,9 @@ def test_jev_decide_choice():
 def test_jev_missing_answer_is_permanent():
     with pytest.raises(PermanentError):
         JevAdapter("k", client=_mock({"answers": {}}, [])).decide(Request("c", "oi", CHOICE))
+
+
+def test_openai_ping_uses_single_model_endpoint():
+    seen = []
+    OpenAIAdapter("k", client=_mock({"id": "gpt-6-luna"}, seen)).ping()
+    assert seen[0].method == "GET" and seen[0].url == "https://api.openai.com/v1/models/gpt-6-luna"

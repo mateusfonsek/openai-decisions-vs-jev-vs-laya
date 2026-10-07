@@ -63,4 +63,4 @@ class OpenAIAdapter:
                         provider_confidence=conf, latency_ms=ms, usage=_usage(data), raw=data)
 
     def ping(self) -> float:
-        return timed_get(self.client, PING_URL, self.headers)
+        return timed_get(self.client, f"{PING_URL}/{self.model}", self.headers)  # 1 modelo: resposta leve

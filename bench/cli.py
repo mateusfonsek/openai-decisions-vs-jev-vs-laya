@@ -26,7 +26,7 @@ def _adapter(provider: str):
         from bench.adapters.jev import JevAdapter
         return JevAdapter(key)
     from bench.adapters.laya import LayaAdapter
-    return LayaAdapter()
+    return LayaAdapter(rotate=True) if provider == "laya-rot" else LayaAdapter()
 
 
 def cmd_validate(args) -> int:
@@ -118,7 +118,7 @@ def main(argv: list[str] | None = None) -> int:
 
     r = sub.add_parser("run", help="roda um provedor sobre o dataset")
     r.add_argument("--dataset", default=argparse.SUPPRESS)
-    r.add_argument("--provider", choices=["openai", "jev", "laya"], required=True)
+    r.add_argument("--provider", choices=["openai", "jev", "laya", "laya-rot"], required=True)
     r.add_argument("--suite", choices=[*SUITES, "all"], default="all")
     r.add_argument("--limit", type=int, default=0, help="casos por suíte (0 = todos)")
     r.add_argument("--results", default="results")

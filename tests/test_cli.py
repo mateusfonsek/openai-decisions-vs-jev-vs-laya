@@ -21,3 +21,16 @@ def test_run_without_key_exits_cleanly(tmp_path, monkeypatch, capsys):
     code = main(["run", "--provider", "openai", "--results", str(tmp_path)])
     assert code == 2
     assert "OPENAI_API_KEY" in capsys.readouterr().err
+
+
+def test_laya_rot_provider_builds_rotating_adapter(monkeypatch):
+    import bench.adapters.laya as laya_mod
+    from bench.cli import _adapter
+
+    class Spy:
+        def __init__(self, **kw):
+            self.kw = kw
+
+    monkeypatch.setattr(laya_mod, "LayaAdapter", Spy)
+    assert _adapter("laya-rot").kw == {"rotate": True}
+    assert _adapter("laya").kw == {}
