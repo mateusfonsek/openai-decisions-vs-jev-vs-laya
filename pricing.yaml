@@ -1,0 +1,5 @@
+# US$ por 1M de tokens. Conferir nas páginas oficiais antes da rodada final.
+consultado_em: "2026-10-07"
+openai: {input_per_m: 0.10, output_per_m: 0.0}
+jev: {input_per_m: 0.042, output_per_m: 0.0}
+laya: {input_per_m: 0.0, output_per_m: 0.0}
