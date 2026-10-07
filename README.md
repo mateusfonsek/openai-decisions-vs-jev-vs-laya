@@ -1,4 +1,4 @@
-# decisions-bench
+# openai-decisions-vs-jev-vs-laya
 
 Benchmark independente de **decision models** em **português**: modelos que, em vez de gerar texto, respondem perguntas fechadas (escolha entre opções, sim/não, nota) e devolvem a probabilidade de cada resposta. Compara três provedores em três cenários comuns de engenharia de IA:
 

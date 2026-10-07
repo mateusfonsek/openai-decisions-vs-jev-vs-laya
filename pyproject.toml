@@ -1,5 +1,5 @@
 [project]
-name = "decisions-bench"
+name = "openai-decisions-vs-jev-vs-laya"
 version = "0.1.0"
 description = "Benchmark de decision models (OpenAI Decisions API, Jev, Laya) em PT-BR"
 requires-python = ">=3.12"
