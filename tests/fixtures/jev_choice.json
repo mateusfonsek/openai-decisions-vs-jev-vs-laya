@@ -1,0 +1,4 @@
+{"model": "jev-1.13.0",
+ "answers": {"tool": {"type": "choice", "choice": "email",
+   "probabilities": {"calendar": 0.2, "email": 0.8}, "confidence": 0.7}},
+ "usage": {"input_tokens": 300, "output_tokens": 20}}
