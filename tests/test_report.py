@@ -57,11 +57,12 @@ def test_write_report_creates_files(tmp_path):
     results = _results(tmp_path)
     pricing = tmp_path / "pricing.yaml"
     pricing.write_text("jev: {input_per_m: 0.042, output_per_m: 0.0}\n")
-    out = write_report(results, _dataset(tmp_path), pricing)
-    for name in ["metrics.json", "summary.md", "hero.png", "by_difficulty.png", "reliability.png"]:
+    out = write_report(results, _dataset(tmp_path), pricing, logos_dir=tmp_path / "sem-logos")
+    for name in ["metrics.json", "summary.md", "hero_routing.png", "by_difficulty_judge.png", "reliability.png"]:
         assert (out / name).exists(), name
     summary = (out / "summary.md").read_text(encoding="utf-8")
-    assert "jev" in summary and "routing" in summary
+    assert "### Roteamento de agente" in summary and "### LLM-as-judge" in summary
+    assert "Jev (TypeSafe)" in summary
 
 
 def test_net_latency_is_none_when_ping_slower_than_decision(tmp_path):

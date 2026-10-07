@@ -75,11 +75,17 @@ def cmd_run(args) -> int:
 
 
 def cmd_report(args) -> int:
-    from bench.report import write_report
+    from rich.console import Console
 
-    out = write_report(Path(args.results_dir), Path(args.dataset), Path(args.pricing))
-    print((out / "summary.md").read_text(encoding="utf-8"))
-    print(f"relatório em {out}")
+    from bench.report import write_report
+    from bench.tables import rich_tables
+
+    out = write_report(Path(args.results_dir), Path(args.dataset), Path(args.pricing), Path(args.logos))
+    console = Console()
+    for table in rich_tables(json.loads((out / "metrics.json").read_text(encoding="utf-8"))):
+        console.print(table)
+        console.print()
+    console.print(f"relatório em [bold]{out}[/]")
     return 0
 
 
@@ -129,6 +135,7 @@ def main(argv: list[str] | None = None) -> int:
     rp.add_argument("results_dir")
     rp.add_argument("--dataset", default=argparse.SUPPRESS)
     rp.add_argument("--pricing", default="pricing.yaml")
+    rp.add_argument("--logos", default="assets/logos")
     rp.set_defaults(func=cmd_report)
 
     e = sub.add_parser("review-export", help="exporta CSV para revisão humana")
