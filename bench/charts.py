@@ -18,6 +18,24 @@ HEADLINE_LABEL = {"accuracy": "Acurácia (%)", "f1": "F1 (%)", "exact": "Nota ex
 DIFF_LABEL = {"easy": "fácil", "ambiguous": "ambíguo", "adversarial": "adversarial"}
 DIFF_SHADES = {"easy": "#c9d6e3", "ambiguous": "#7f9cb8", "adversarial": "#2f4b66"}
 LOGO_PX = 30
+ARROW = {"arrowstyle": "-", "color": "#999", "linewidth": 0.8}
+
+
+def spread_offsets(points: list[tuple[float, float]], min_dist: float) -> list[tuple[float, float]]:
+    """Deslocamentos (mesma unidade dos pontos) para que nenhum par de logos fique a menos de
+    min_dist; pontos já afastados não se movem."""
+    steps = [(0, 0)] + [(dx * k, dy * k) for k in (1, 2, 3)
+                        for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1), (1, 1), (-1, 1), (1, -1), (-1, -1))]
+    placed: list[tuple[float, float]] = []
+    offsets = []
+    for x, y in points:
+        for sx, sy in steps:
+            cand = (x + sx * min_dist, y + sy * min_dist)
+            if all(((cand[0] - px) ** 2 + (cand[1] - py) ** 2) ** 0.5 >= min_dist for px, py in placed):
+                break
+        placed.append(cand)
+        offsets.append((cand[0] - x, cand[1] - y))
+    return offsets
 
 
 def logo_for(provider: str, logos_dir: Path) -> Path | None:
@@ -30,17 +48,19 @@ def _providers(metrics: dict, suite: str) -> list[str]:
            [p for p in metrics if p not in ORDER and suite in metrics[p]]
 
 
-def _mark(ax, provider: str, xy, logos_dir: Path, xycoords="data", offset=(0, 0)):
+def _mark(ax, provider: str, xy, logos_dir: Path, xycoords="data", offset=(0, 0), arrow=False):
     """Logo do provedor centrado em xy; nome em texto se não houver arquivo de logo."""
     path = logo_for(provider, logos_dir)
     if path is None:
         ax.annotate(NAMES.get(provider, provider), xy, xycoords=xycoords, xytext=offset,
                     textcoords="offset points", ha="center", va="center", fontsize=9, fontweight="bold",
-                    bbox={"boxstyle": "round,pad=0.3", "fc": "white", "ec": "#888"})
+                    bbox={"boxstyle": "round,pad=0.3", "fc": "white", "ec": "#888"},
+                    arrowprops=ARROW if arrow else None)
         return
     img = plt.imread(path)
     box = AnnotationBbox(OffsetImage(img, zoom=LOGO_PX / max(img.shape[:2])), xy, xycoords=xycoords,
-                         xybox=offset, boxcoords="offset points", frameon=False)
+                         xybox=offset, boxcoords="offset points", frameon=False,
+                         arrowprops=ARROW if arrow else None)
     ax.add_artist(box)
     if provider == "laya-rot":  # mesmo logo da Laya; identifica a variante
         ax.annotate("+ rotação", xy, xycoords=xycoords, xytext=(offset[0], offset[1] - LOGO_PX * 0.75),
@@ -54,12 +74,14 @@ def _hero(metrics: dict, suite: str, path: Path, logos_dir: Path) -> None:
            if metrics[p][suite].get("latency_p50") is not None]
     xs = [m["latency_p50"] for _, m in pts]
     ys = [(m.get(key) or 0) * 100 for _, m in pts]
-    ax.scatter(xs, ys, s=0)  # define os limites; os logos são o marcador
-    for (p, _), x, y in zip(pts, xs, ys):
-        _mark(ax, p, (x, y), logos_dir)
+    ax.scatter(xs, ys, s=12, color="#555", zorder=3)  # valor exato; o logo fica ao lado se colidir
     ax.set_xscale("log")
     ax.set_xlim(min(xs) / 1.6, max(xs) * 1.6)
     ax.set_ylim(max(0, min(ys) - 12), min(105, max(ys) + 10))
+    to_pt = 72 / fig.dpi  # pixels de tela -> pontos (unidade dos offsets)
+    pts_pt = [tuple(v * to_pt for v in ax.transData.transform((x, y))) for x, y in zip(xs, ys)]
+    for (p, _), x, y, off in zip(pts, xs, ys, spread_offsets(pts_pt, min_dist=LOGO_PX * 1.4)):
+        _mark(ax, p, (x, y), logos_dir, offset=off, arrow=off != (0, 0))
     ax.set_xlabel("Latência p50 (ms, escala log) — mais à esquerda é mais rápido")
     ax.set_ylabel(HEADLINE_LABEL[key] + " — mais alto é melhor")
     ax.set_title(f"{SUITE_COLUMNS[suite][0]}: qualidade × latência")

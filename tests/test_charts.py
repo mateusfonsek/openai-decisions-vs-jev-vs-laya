@@ -33,3 +33,16 @@ def test_charts_with_logos(tmp_path):
 
 def test_logo_for_missing_returns_none(tmp_path):
     assert logo_for("openai", tmp_path) is None
+
+
+def test_spread_offsets_separates_close_points_and_keeps_far_ones():
+    from bench.charts import spread_offsets
+
+    pts = [(100.0, 100.0), (105.0, 102.0), (400.0, 300.0)]
+    offs = spread_offsets(pts, min_dist=40)
+    placed = [(x + dx, y + dy) for (x, y), (dx, dy) in zip(pts, offs)]
+    for i in range(3):
+        for j in range(i + 1, 3):
+            d = ((placed[i][0] - placed[j][0]) ** 2 + (placed[i][1] - placed[j][1]) ** 2) ** 0.5
+            assert d >= 40, (i, j, d)
+    assert offs[0] == (0, 0) and offs[2] == (0, 0)
