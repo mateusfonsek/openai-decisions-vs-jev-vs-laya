@@ -57,3 +57,16 @@ def test_to_request_uses_suite_question():
     q = load_suites(SUITES_YAML)["routing"]
     r = to_request(_case(7, text="marca reunião"), q)
     assert r.case_id == "routing-007" and r.input == "marca reunião" and r.question is q
+
+
+
+def test_judge_levels_match_spec_rubric():
+    levels = load_suites(SUITES_YAML)["judge"].levels
+    assert [lv["description"] for lv in levels] == [
+        "errada ou irrelevante",
+        "parcialmente errada",
+        "correta, mas incompleta",
+        "correta e completa, com problemas de clareza",
+        "correta, completa e clara",
+    ]
+    assert all(set(lv) == {"label", "description"} for lv in levels)

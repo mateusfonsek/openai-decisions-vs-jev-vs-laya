@@ -32,8 +32,8 @@ judge:
     A entrada contém uma pergunta e a resposta de um assistente de IA.
     Avalie a qualidade da resposta.
   levels:
-    - {label: "1", description: errada ou irrelevante}
-    - {label: "2", description: parcialmente errada}
-    - {label: "3", description: correta, mas incompleta}
-    - {label: "4", description: correta e completa, com problemas de clareza}
-    - {label: "5", description: correta, completa e clara}
+    - {label: "1", description: "errada ou irrelevante"}
+    - {label: "2", description: "parcialmente errada"}
+    - {label: "3", description: "correta, mas incompleta"}
+    - {label: "4", description: "correta e completa, com problemas de clareza"}
+    - {label: "5", description: "correta, completa e clara"}
