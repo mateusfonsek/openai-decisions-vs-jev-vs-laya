@@ -90,3 +90,18 @@ def test_parse_expected():
     assert parse_expected("true", "predicate") is True
     assert parse_expected(" 3 ", "score") == 3
     assert parse_expected("email", "choice") == "email"
+
+
+def test_import_aborts_on_unrecognized_aprovado(tmp_path):
+    d = _setup(tmp_path)
+    out = tmp_path / "review.csv"
+    export_review(d, out)
+    rows = _rows(out)
+    for r in rows:
+        r["aprovado"] = "s"
+    rows[1]["aprovado"] = "ok"
+    _write(out, rows)
+    before = (d / "routing.jsonl").read_text()
+    with pytest.raises(ValueError, match="routing-002"):
+        import_review(out, d)
+    assert (d / "routing.jsonl").read_text() == before

@@ -44,9 +44,13 @@ def import_review(csv_path: Path, dataset_dir: Path) -> dict:
     dataset_dir = Path(dataset_dir)
     with open(csv_path, encoding="utf-8-sig", newline="") as f:
         rows = {r["id"]: r for r in csv.DictReader(f)}
-    unreviewed = [i for i, r in rows.items() if not r["aprovado"].strip()]
+    marks = {i: (r.get("aprovado") or "").strip().lower() for i, r in rows.items()}
+    unreviewed = [i for i, m in marks.items() if not m]
     if unreviewed:
         raise ValueError(f"{len(unreviewed)} linhas sem 'aprovado': {', '.join(unreviewed[:20])}")
+    unknown = [i for i, m in marks.items() if m not in YES | NO]
+    if unknown:
+        raise ValueError(f"'aprovado' deve ser s ou n; valor não reconhecido em: {', '.join(unknown[:20])}")
 
     questions = load_suites(dataset_dir / "suites.yaml")
     report = {"kept": 0, "corrected": [], "removed": []}
@@ -56,9 +60,9 @@ def import_review(csv_path: Path, dataset_dir: Path) -> dict:
         kept = []
         for c in load_cases(dataset_dir / f"{suite}.jsonl"):
             r = rows.get(c.id)
-            if r is None or r["aprovado"].strip().lower() in YES:
+            if r is None or marks[c.id] in YES:
                 kept.append(c)
-            elif r["correcao"].strip():
+            elif (r.get("correcao") or "").strip():
                 kept.append(replace(c, expected=parse_expected(r["correcao"], q.type)))
                 report["corrected"].append(c.id)
             else:
