@@ -35,14 +35,41 @@ def test_logo_for_missing_returns_none(tmp_path):
     assert logo_for("openai", tmp_path) is None
 
 
+
+def _placed(pts, offs):
+    return [(x + dx, y + dy) for (x, y), (dx, dy) in zip(pts, offs)]
+
+
+def _min_pair_dist(placed):
+    return min(((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2) ** 0.5
+               for i, a in enumerate(placed) for b in placed[i + 1:])
+
+
 def test_spread_offsets_separates_close_points_and_keeps_far_ones():
     from bench.charts import spread_offsets
 
     pts = [(100.0, 100.0), (105.0, 102.0), (400.0, 300.0)]
     offs = spread_offsets(pts, min_dist=40)
-    placed = [(x + dx, y + dy) for (x, y), (dx, dy) in zip(pts, offs)]
-    for i in range(3):
-        for j in range(i + 1, 3):
-            d = ((placed[i][0] - placed[j][0]) ** 2 + (placed[i][1] - placed[j][1]) ** 2) ** 0.5
-            assert d >= 40, (i, j, d)
-    assert offs[0] == (0, 0) and offs[2] == (0, 0)
+    assert _min_pair_dist(_placed(pts, offs)) >= 40 - 1e-9
+    assert offs[2] == (0, 0)                               # ponto isolado não se move
+
+
+def test_spread_offsets_vertical_only_and_keeps_order():
+    from bench.charts import spread_offsets
+
+    pts = [(100.0, 100.0), (104.0, 103.0)]                 # o 2º é o maior valor
+    offs = spread_offsets(pts, min_dist=40)
+    assert all(dx == 0 for dx, _ in offs)                  # latência lida não muda
+    placed = _placed(pts, offs)
+    assert placed[1][1] > placed[0][1]                     # quem é maior continua em cima
+    assert max(abs(dy) for _, dy in offs) <= 40            # cada um anda no máximo um passo
+
+
+def test_spread_offsets_respects_bounds():
+    from bench.charts import spread_offsets
+
+    pts = [(100.0, 100.0), (104.0, 101.0)]
+    offs = spread_offsets(pts, min_dist=40, bounds=(0, 0, 500, 110))
+    placed = _placed(pts, offs)
+    assert all(0 <= y <= 110 for _, y in placed)
+    assert _min_pair_dist(placed) >= 40 - 1e-9 and placed[1][1] > placed[0][1]

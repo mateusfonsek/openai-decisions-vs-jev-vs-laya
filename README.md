@@ -10,9 +10,9 @@ Rodada de 2026-10-07: 450 casos por provedor, 0 falhas. Melhor valor de cada col
 
 ## Resumo
 
-- **Jev e OpenAI empatam tecnicamente na qualidade.** O Jev fica à frente no roteamento (88,0% × 86,7%) e no judge (80,7% × 72,0% de nota exata) e custa 17–35% menos. A OpenAI é o guardrail mais conservador: nenhum falso alarme nos textos que apenas falam sobre ataques.
-- **Os dois modelos decidem em ~55–90 ms.** O resto dos ~215–230 ms de latência total é a ida e volta pela rede.
-- **A Laya é ~10× mais rápida (~23 ms, local, sem custo), mas zero-shot não serve em português:** 31% no roteamento, 65% de F1 na detecção de injection e 27% de nota exata no judge.
+- **Jev e OpenAI empatam no roteamento e na detecção de injection; no judge, o Jev é melhor.** Roteamento 88,0% × 86,7% e injection F1 96,6% × 95,8% (diferenças sem significância estatística); judge 80,7% × 72,0% de nota exata (teste de McNemar, p = 0,011). O Jev custa 17–35% menos. A OpenAI é o guardrail mais conservador: nenhum falso alarme nos textos que apenas falam sobre ataques.
+- **Estima-se que os dois modelos decidam em ~55–90 ms;** o resto dos ~215–230 ms de latência total é a ida e volta pela rede (ver *p50 sem rede* abaixo).
+- **A Laya responde ~10× mais rápido que as APIs, contando a rede (~23 ms, local, sem custo), mas zero-shot não serve em português:** 31% no roteamento, 65% de F1 na detecção de injection e 27% de nota exata no judge.
 
 ## Cenário 1: roteamento de agente
 
@@ -22,17 +22,17 @@ Rodada de 2026-10-07: 450 casos por provedor, 0 falhas. Melhor valor de cada col
 
 | Provedor | Acurácia | F1 macro | Fácil | Ambíguo | Adversarial | ECE | p50 (ms) | p50 sem rede (ms) | p95 (ms) | Custo por 1k |
 |---|---|---|---|---|---|---|---|---|---|---|
-| OpenAI | 86.7% | 86.0% | 94.0% | **80.0%** | 86.0% | 4.0% | 216 | 87 | 408 | US$ 0.0256 |
-| Jev (TypeSafe) | **88.0%** | **87.4%** | **96.0%** | **80.0%** | **88.0%** | **3.8%** | 229 | 57 | 304 | US$ 0.0212 |
-| Laya | 30.7% | 29.8% | 40.0% | 18.0% | 34.0% | 42.7% | **25** | **25** | **29** | **US$ 0.0000** |
-| Laya + rotação | 40.0% | 37.5% | 56.0% | 22.0% | 42.0% | 22.6% | 193 | 193 | 209 | **US$ 0.0000** |
+| OpenAI | 86,7% | 86,0% | 94,0% | **80,0%** | 86,0% | 4,0% | 216 | 87 | 408 | US$ 0,0256 |
+| Jev (TypeSafe) | **88,0%** | **87,4%** | **96,0%** | **80,0%** | **88,0%** | **3,8%** | 229 | 57 | 304 | US$ 0,0212 |
+| Laya | 30,7% | 29,8% | 40,0% | 18,0% | 34,0% | 42,7% | **25** | **25** | **29** | **US$ 0,0000** |
+| Laya + rotação | 40,0% | 37,5% | 56,0% | 22,0% | 42,0% | 22,6% | 193 | 193 | 209 | **US$ 0,0000** |
 
 <p>
   <img src="results/2026-10-07/report/hero_routing.png" width="49%">
   <img src="results/2026-10-07/report/by_difficulty_routing.png" width="49%">
 </p>
 
-**O que os números mostram:** Jev e OpenAI erram principalmente nos casos ambíguos (80% nos dois). A Laya tem um **viés de posição** forte: na ordem padrão das opções ela responde "atendente humano" (a 7ª de 8 opções) em 101 das 150 mensagens, quando essa é a resposta certa em só 18. Rotacionar a ordem das opções e tirar a média sobe a acurácia para 40%, mas exige 8 chamadas por decisão, e a latência local fica igual à das APIs.
+**O que os números mostram:** Jev e OpenAI erram principalmente nos casos ambíguos (80% nos dois). A Laya tem um **viés de posição** forte: na ordem padrão das opções ela responde "atendente humano" (a 7ª de 8 opções) em 101 das 150 mensagens, quando essa é a resposta certa em só 18. Rotacionar a ordem das opções e tirar a média sobe a acurácia para 40%, mas exige 8 chamadas por decisão, e a latência local passa a ser comparável à das APIs (~190 ms).
 
 ## Cenário 2: detecção de prompt injection
 
@@ -42,10 +42,10 @@ Rodada de 2026-10-07: 450 casos por provedor, 0 falhas. Melhor valor de cada col
 
 | Provedor | Precisão | Recall | F1 | AUROC | Falso positivo em negativos difíceis | ECE | p50 (ms) | p50 sem rede (ms) | p95 (ms) | Custo por 1k |
 |---|---|---|---|---|---|---|---|---|---|---|
-| OpenAI | **100.0%** | 92.0% | 95.8% | 0.993 | **0.0%** | **2.6%** | 213 | 84 | 318 | US$ 0.0250 |
-| Jev (TypeSafe) | 97.3% | **96.0%** | **96.6%** | **0.993** | 4.0% | 6.7% | 225 | 53 | 296 | US$ 0.0162 |
-| Laya | 65.3% | 65.3% | 65.3% | 0.725 | 60.0% | 23.0% | 23 | 23 | **26** | **US$ 0.0000** |
-| Laya + rotação | 65.3% | 65.3% | 65.3% | 0.725 | 60.0% | 23.0% | **23** | **23** | 27 | **US$ 0.0000** |
+| OpenAI | **100,0%** | 92,0% | 95,8% | **0,993** | **0,0%** | **2,6%** | 213 | 84 | 318 | US$ 0,0250 |
+| Jev (TypeSafe) | 97,3% | **96,0%** | **96,6%** | **0,993** | 4,0% | 6,7% | 225 | 53 | 296 | US$ 0,0162 |
+| Laya | 65,3% | 65,3% | 65,3% | 0,725 | 60,0% | 23,0% | **23** | **23** | **26** | **US$ 0,0000** |
+| Laya + rotação | 65,3% | 65,3% | 65,3% | 0,725 | 60,0% | 23,0% | **23** | **23** | 27 | **US$ 0,0000** |
 
 <p>
   <img src="results/2026-10-07/report/hero_injection.png" width="49%">
@@ -58,14 +58,14 @@ Rodada de 2026-10-07: 450 casos por provedor, 0 falhas. Melhor valor de cada col
 
 **O que testa:** dar nota de 1 a 5 à resposta de um assistente segundo uma rubrica fixa (1 = errada, 3 = correta mas incompleta, 5 = correta, completa e clara). São 150 pares de pergunta e resposta, 30 por nota. Os casos difíceis incluem respostas longas e confiantes porém erradas, respostas curtas porém perfeitas e respostas que elogiam a si mesmas.
 
-**Como ler:** *Nota exata* é a fração de notas iguais à do rótulo. *Erro de até 1 ponto* aceita nota vizinha. *Erro médio* é a distância média até a nota certa; quanto menor, melhor.
+**Como ler:** *Nota exata* é a fração de notas iguais à do rótulo. *Acerto ±1 ponto* aceita nota vizinha. *Erro médio* é a distância média até a nota certa; quanto menor, melhor.
 
-| Provedor | Nota exata | Erro de até 1 ponto | Erro médio | ECE | p50 (ms) | p50 sem rede (ms) | p95 (ms) | Custo por 1k |
+| Provedor | Nota exata | Acerto ±1 ponto | Erro médio | ECE | p50 (ms) | p50 sem rede (ms) | p95 (ms) | Custo por 1k |
 |---|---|---|---|---|---|---|---|---|
-| OpenAI | 72.0% | **100.0%** | 0.28 | 11.7% | 214 | 85 | 362 | US$ 0.0220 |
-| Jev (TypeSafe) | **80.7%** | 98.7% | **0.21** | **8.0%** | 229 | 57 | 282 | US$ 0.0174 |
-| Laya | 27.3% | 58.7% | 1.46 | 25.2% | **23** | **23** | 33 | **US$ 0.0000** |
-| Laya + rotação | 27.3% | 58.7% | 1.46 | 25.2% | 24 | 24 | **32** | **US$ 0.0000** |
+| OpenAI | 72,0% | **100,0%** | 0,28 | 11,7% | 214 | 85 | 362 | US$ 0,0220 |
+| Jev (TypeSafe) | **80,7%** | 98,7% | **0,21** | **8,0%** | 229 | 57 | 282 | US$ 0,0174 |
+| Laya | 27,3% | 58,7% | 1,46 | 25,2% | **23** | **23** | 33 | **US$ 0,0000** |
+| Laya + rotação | 27,3% | 58,7% | 1,46 | 25,2% | 24 | 24 | **32** | **US$ 0,0000** |
 
 <p>
   <img src="results/2026-10-07/report/hero_judge.png" width="49%">
@@ -78,7 +78,7 @@ Rodada de 2026-10-07: 450 casos por provedor, 0 falhas. Melhor valor de cada col
 
 - **ECE (erro de calibração):** diferença média entre a confiança declarada e o acerto real. Com ECE de 4%, quando o modelo diz "80% de certeza" ele acerta perto de 80% das vezes, então dá para definir limiares em produção. Quanto menor, melhor. Diagramas em [`reliability.png`](results/2026-10-07/report/reliability.png).
 - **p50 (ms):** latência típica (mediana) de uma decisão, medida do Brasil, com chamadas uma de cada vez.
-- **p50 sem rede (ms):** p50 menos o tempo de ida e volta pela rede, medido com uma requisição sem chave ao mesmo endpoint de decisões. A API recusa essa requisição na entrada, sem chegar ao modelo, então esse tempo é só rede: ~129 ms até a OpenAI e ~172 ms até o Jev. A Laya roda local, então é igual ao p50.
+- **p50 sem rede (ms):** estimativa do tempo do modelo. É o p50 menos a mediana de 20 pings: requisições sem chave ao mesmo endpoint de decisões, que a API recusa na entrada (401/403) sem chegar ao modelo. O ping inclui rede, TLS e a checagem de chave (~129 ms até a OpenAI, ~172 ms até o Jev), então a estimativa é conservadora: o tempo real do modelo pode ser um pouco maior. A Laya roda local, então é igual ao p50.
 - **p95 (ms):** latência das 5% de chamadas mais lentas.
 - **Custo por 1k:** custo de mil decisões, a partir dos tokens reais de cada resposta e dos preços em [`pricing.yaml`](pricing.yaml). Os dois provedores cobram só a entrada.
 
@@ -99,7 +99,7 @@ uv run bench report results/<data>      # imprime as tabelas e gera os gráficos
 - **Dataset:** 450 casos em português (150 por cenário, um terço em cada dificuldade), gerados com Claude, que não é concorrente, e aprovados após revisão rápida por humano. As instruções, opções e rubrica ficam em [`dataset/suites.yaml`](dataset/suites.yaml) e são o mesmo texto para todos os provedores. Hashes em [`dataset/SHA256SUMS`](dataset/SHA256SUMS).
 - **Execução:** chamadas uma de cada vez, com 3 chamadas de aquecimento descartadas e até 4 tentativas em erros temporários. Falhas são registradas, nunca descartadas.
 - **Calibração:** calculada a partir das probabilidades devolvidas, do mesmo jeito para todos. O campo `confidence` de cada provedor tem definição própria e não é usado.
-- **Limitações:** dataset sintético de um único modelo, com revisão rápida. Uma rodada por caso. Tudo zero-shot, sem fine-tuning. A Laya rodou num Apple M5 com 16 GB. A OpenAI Decisions API está em beta.
+- **Limitações:** dataset sintético de um único modelo, com revisão rápida. Uma rodada por caso. Tudo zero-shot, sem fine-tuning. A Laya rodou num Apple M5 com 16 GB. A OpenAI Decisions API está em beta. A TypeSafe não publica página de preços; o valor do Jev vem de fontes secundárias (ver [`pricing.yaml`](pricing.yaml)). O adapter do Jev usa `jev-latest`; a versão testada (`jev-1.13.0`) está registrada em cada resposta salva.
 
 ## Licença
 

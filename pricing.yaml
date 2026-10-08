@@ -1,4 +1,8 @@
-# US$ por 1M de tokens. Conferir nas páginas oficiais antes da rodada final.
+# US$ por 1M de tokens, consultado em 2026-10-07.
+# openai: guia oficial da Decisions API — https://developers.openai.com/api/docs/guides/decisions
+# jev: a TypeSafe não publica página de preços; valor divulgado em fontes secundárias
+#      (ex.: https://www.eesel.ai/blog/typesafe-jev-pricing). Confira no console da TypeSafe.
+# laya: roda localmente, sem custo por chamada.
 consultado_em: "2026-10-07"
 openai: {input_per_m: 0.10, output_per_m: 0.0}
 jev: {input_per_m: 0.042, output_per_m: 0.0}

@@ -114,3 +114,11 @@ def test_injection_question_is_identical_for_all_providers():
     assert set(jev_q) == {"type", "instructions"}  # nenhum campo que a OpenAI não recebe
     assert jev_q["instructions"] == openai_q["instructions"]
     assert "apenas falam sobre ataques" in openai_q["instructions"]
+
+
+def test_ping_rejects_unexpected_status():
+    # 200/404/redirect não são a recusa de borda esperada: a medida não seria só de rede
+    with pytest.raises(PermanentError):
+        OpenAIAdapter("k", client=_status(200, [])).ping()
+    with pytest.raises(PermanentError):
+        JevAdapter("k", client=_status(404, [])).ping()

@@ -8,8 +8,12 @@ NAMES = {"openai": "OpenAI", "jev": "Jev (TypeSafe)", "laya": "Laya", "laya-rot"
 ORDER = ["openai", "jev", "laya", "laya-rot"]
 
 
+def _br(text: str) -> str:
+    return text.replace(".", ",")  # separador decimal em PT-BR
+
+
 def _pct(v):
-    return f"{v * 100:.1f}%"
+    return _br(f"{v * 100:.1f}%")
 
 
 def _ms(v):
@@ -17,11 +21,11 @@ def _ms(v):
 
 
 def _usd(v):
-    return f"US$ {v:.4f}"
+    return _br(f"US$ {v:.4f}")
 
 
 def _num(v):
-    return f"{v:.3f}"
+    return _br(f"{v:.3f}")
 
 
 def _diff(d, key):
@@ -46,8 +50,8 @@ SUITE_COLUMNS = {
     ]),
     "judge": ("LLM-as-judge (nota de 1 a 5)", [
         ("Nota exata", lambda m: m.get("exact"), _pct, True),
-        ("Erro de até 1 ponto", lambda m: m.get("within_1"), _pct, True),
-        ("Erro médio", lambda m: m.get("mae"), lambda v: f"{v:.2f}", False),
+        ("Acerto ±1 ponto", lambda m: m.get("within_1"), _pct, True),
+        ("Erro médio", lambda m: m.get("mae"), lambda v: _br(f"{v:.2f}"), False),
     ]),
 }
 COMMON_COLUMNS = [
@@ -66,11 +70,11 @@ def _rows(metrics: dict, suite: str):
     providers = [p for p in ORDER if suite in metrics.get(p, {})] + \
                 [p for p in metrics if p not in ORDER and suite in metrics[p]]
     values = {p: [get(metrics[p][suite]) for _, get, _, _ in cols] for p in providers}
-    best = []
-    for i, (_, _, _, higher) in enumerate(cols):
+    best = []  # texto exibido do melhor valor: empates após o arredondamento ficam todos em negrito
+    for i, (_, _, fmt, higher) in enumerate(cols):
         present = [values[p][i] for p in providers if values[p][i] is not None]
-        best.append((max if higher else min)(present) if present else None)
-    rows = [(NAMES.get(p, p), [("—" if v is None else fmt(v), v is not None and v == best[i])
+        best.append(fmt((max if higher else min)(present)) if present else None)
+    rows = [(NAMES.get(p, p), [("—", False) if v is None else (fmt(v), fmt(v) == best[i])
                                for i, ((_, _, fmt, _), v) in enumerate(zip(cols, values[p]))])
             for p in providers]
     return title, [c[0] for c in cols], rows

@@ -8,6 +8,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 from matplotlib.offsetbox import AnnotationBbox, OffsetImage  # noqa: E402
+from matplotlib.ticker import FixedLocator, NullFormatter, ScalarFormatter  # noqa: E402
 
 from bench.dataset import DIFFICULTIES  # noqa: E402
 from bench.metrics import HEADLINE  # noqa: E402
@@ -21,20 +22,43 @@ LOGO_PX = 30
 ARROW = {"arrowstyle": "-", "color": "#999", "linewidth": 0.8}
 
 
-def spread_offsets(points: list[tuple[float, float]], min_dist: float) -> list[tuple[float, float]]:
-    """Deslocamentos (mesma unidade dos pontos) para que nenhum par de logos fique a menos de
-    min_dist; pontos já afastados não se movem."""
-    steps = [(0, 0)] + [(dx * k, dy * k) for k in (1, 2, 3)
-                        for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1), (1, 1), (-1, 1), (1, -1), (-1, -1))]
-    placed: list[tuple[float, float]] = []
-    offsets = []
-    for x, y in points:
-        for sx, sy in steps:
-            cand = (x + sx * min_dist, y + sy * min_dist)
-            if all(((cand[0] - px) ** 2 + (cand[1] - py) ** 2) ** 0.5 >= min_dist for px, py in placed):
-                break
-        placed.append(cand)
-        offsets.append((cand[0] - x, cand[1] - y))
+def spread_offsets(points: list[tuple[float, float]], min_dist: float,
+                   bounds: tuple[float, float, float, float] | None = None) -> list[tuple[float, float]]:
+    """Deslocamentos verticais (mesma unidade dos pontos) para que logos próximos não se sobreponham.
+    Pontos que colidem formam um grupo, espalhado simetricamente em torno da altura média, com
+    espaçamento min_dist e na mesma ordem dos valores reais (o maior fica em cima). Nunca há
+    deslocamento horizontal: no eixo x (latência) ele seria lido como diferença de tempo.
+    bounds=(xmin, ymin, xmax, ymax) mantém o grupo dentro da área do gráfico. Pontos isolados não se movem."""
+    n = len(points)
+    parent = list(range(n))
+
+    def find(i):
+        while parent[i] != i:
+            parent[i] = parent[parent[i]]
+            i = parent[i]
+        return i
+
+    for i in range(n):
+        for j in range(i + 1, n):
+            (xi, yi), (xj, yj) = points[i], points[j]
+            if ((xi - xj) ** 2 + (yi - yj) ** 2) ** 0.5 < min_dist:
+                parent[find(i)] = find(j)
+    groups: dict[int, list[int]] = {}
+    for i in range(n):
+        groups.setdefault(find(i), []).append(i)
+
+    offsets = [(0.0, 0.0)] * n
+    for members in groups.values():
+        if len(members) == 1:
+            continue
+        members.sort(key=lambda i: (points[i][1], i))
+        mean = sum(points[i][1] for i in members) / len(members)
+        targets = [mean + (k - (len(members) - 1) / 2) * min_dist for k in range(len(members))]
+        if bounds:  # desliza o grupo inteiro para caber
+            shift = max(0.0, bounds[1] - targets[0]) - max(0.0, targets[-1] - bounds[3])
+            targets = [t + shift for t in targets]
+        for i, t in zip(members, targets):
+            offsets[i] = (0.0, t - points[i][1])
     return offsets
 
 
@@ -63,8 +87,8 @@ def _mark(ax, provider: str, xy, logos_dir: Path, xycoords="data", offset=(0, 0)
                          arrowprops=ARROW if arrow else None)
     ax.add_artist(box)
     if provider == "laya-rot":  # mesmo logo da Laya; identifica a variante
-        ax.annotate("+ rotação", xy, xycoords=xycoords, xytext=(offset[0], offset[1] - LOGO_PX * 0.75),
-                    textcoords="offset points", ha="center", va="top", fontsize=7)
+        ax.annotate("+ rotação", xy, xycoords=xycoords, xytext=(offset[0] + LOGO_PX * 0.65, offset[1]),
+                    textcoords="offset points", ha="left", va="center", fontsize=8)
 
 
 def _hero(metrics: dict, suite: str, path: Path, logos_dir: Path) -> None:
@@ -74,13 +98,21 @@ def _hero(metrics: dict, suite: str, path: Path, logos_dir: Path) -> None:
            if metrics[p][suite].get("latency_p50") is not None]
     xs = [m["latency_p50"] for _, m in pts]
     ys = [(m.get(key) or 0) * 100 for _, m in pts]
-    ax.scatter(xs, ys, s=12, color="#555", zorder=3)  # valor exato; o logo fica ao lado se colidir
+    ax.scatter(xs, ys, s=14, color="#222", zorder=10)  # valor exato, sempre por cima dos logos
     ax.set_xscale("log")
+    ax.xaxis.set_major_locator(FixedLocator([10, 20, 50, 100, 200, 500, 1000]))
+    ax.xaxis.set_major_formatter(ScalarFormatter())
+    ax.xaxis.set_minor_formatter(NullFormatter())
     ax.set_xlim(min(xs) / 1.6, max(xs) * 1.6)
-    ax.set_ylim(max(0, min(ys) - 12), min(105, max(ys) + 10))
+    lo, hi = max(0, min(ys) - 12), max(ys) + 16  # folga acima: logos afastados sobem um passo, sem sair do gráfico
+    ax.set_ylim(lo, hi)
+    ax.set_yticks([t for t in range(0, 101, 10) if lo <= t <= min(hi, 100)])  # % não passa de 100
     to_pt = 72 / fig.dpi  # pixels de tela -> pontos (unidade dos offsets)
     pts_pt = [tuple(v * to_pt for v in ax.transData.transform((x, y))) for x, y in zip(xs, ys)]
-    for (p, _), x, y, off in zip(pts, xs, ys, spread_offsets(pts_pt, min_dist=LOGO_PX * 1.4)):
+    (x0, y0), (x1, y1) = ax.get_window_extent().get_points() * to_pt
+    half = LOGO_PX * 0.6  # o logo inteiro precisa caber na área do gráfico
+    area = (x0 + half, y0 + half, x1 - half, y1 - half)
+    for (p, _), x, y, off in zip(pts, xs, ys, spread_offsets(pts_pt, min_dist=LOGO_PX * 1.4, bounds=area)):
         _mark(ax, p, (x, y), logos_dir, offset=off, arrow=off != (0, 0))
     ax.set_xlabel("Latência p50 (ms, escala log) — mais à esquerda é mais rápido")
     ax.set_ylabel(HEADLINE_LABEL[key] + " — mais alto é melhor")
@@ -115,27 +147,39 @@ def _by_difficulty(metrics: dict, suite: str, path: Path, logos_dir: Path) -> No
     plt.close(fig)
 
 
+SUITE_STYLE = {"routing": ("o", "-"), "injection": ("s", "--"), "judge": ("^", ":")}
+MIN_BIN = 5  # bins com menos casos que isso são ruído e não entram no gráfico
+
+
 def _reliability(metrics: dict, path: Path, logos_dir: Path) -> None:
-    suites = list(SUITE_COLUMNS)
-    fig, axes = plt.subplots(1, len(suites), figsize=(14, 4.6), sharey=True)
-    markers = ["o", "s", "^", "D"]
-    for ax, suite in zip(axes, suites):
+    """Um painel por provedor (logo no topo), uma linha por cenário. laya-rot fica de fora:
+    só difere da Laya no roteamento."""
+    providers = [p for p in _providers_any(metrics) if p != "laya-rot"]
+    fig, axes = plt.subplots(1, len(providers), figsize=(4.2 * len(providers), 4.6), sharey=True)
+    axes = axes if len(providers) > 1 else [axes]
+    for ax, p in zip(axes, providers):
         ax.plot([0, 1], [0, 1], "--", color="#bbb", linewidth=1)
-        for k, p in enumerate(_providers(metrics, suite)):
-            bins = metrics[p][suite].get("reliability", [])
-            if not bins:
-                continue
-            xs, ys = [b["conf"] for b in bins], [b["acc"] for b in bins]
-            ax.plot(xs, ys, marker=markers[k % len(markers)], color="#555", linewidth=1, markersize=4)
-            _mark(ax, p, (xs[-1], ys[-1]), logos_dir, offset=(16, 0))
-        ax.set_xlim(0, 1.15)
+        for suite, (marker, ls) in SUITE_STYLE.items():
+            bins = [b for b in metrics[p].get(suite, {}).get("reliability", []) if b["n"] >= MIN_BIN]
+            if bins:
+                ax.plot([b["conf"] for b in bins], [b["acc"] for b in bins], marker=marker, linestyle=ls,
+                        color="#333", linewidth=1.2, markersize=5, label=SUITE_COLUMNS[suite][0])
+        ax.set_xlim(0, 1.02)
         ax.set_ylim(0, 1.05)
-        ax.set_title(SUITE_COLUMNS[suite][0], fontsize=10)
         ax.set_xlabel("confiança declarada")
-    axes[0].set_ylabel("acerto observado (diagonal = calibrado)")
+        _mark(ax, p, (0.5, 1.0), logos_dir, xycoords="axes fraction", offset=(0, 22))
+    axes[0].set_ylabel("acerto observado (diagonal = bem calibrado)")
+    handles, labels = axes[0].get_legend_handles_labels()
     fig.tight_layout()
+    fig.subplots_adjust(top=0.82, bottom=0.24)
+    if handles:  # legenda abaixo dos painéis, sem cobrir dados
+        fig.legend(handles, labels, loc="lower center", ncol=len(handles), fontsize=9, frameon=False)
     fig.savefig(path, dpi=200)
     plt.close(fig)
+
+
+def _providers_any(metrics: dict) -> list[str]:
+    return [p for p in ORDER if p in metrics] + [p for p in metrics if p not in ORDER]
 
 
 def write_charts(metrics: dict, out_dir: Path, logos_dir: Path) -> None:
